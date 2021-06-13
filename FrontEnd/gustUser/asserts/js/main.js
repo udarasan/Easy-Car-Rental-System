@@ -1,7 +1,7 @@
 // loading contex separately
-hideAll();
+mainFunction();
 
-function hideAll() {
+function mainFunction() {
     $('.car-details-section').css({display: "block"});
     $('.login-section').css({display: "none"});
     $('.registration-section').css({display: "none"});

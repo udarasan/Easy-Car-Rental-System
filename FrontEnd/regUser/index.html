@@ -7,21 +7,203 @@
 </head>
 <body>
 
+<!---------------------------------------------------header section------------------------------------------------>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#" id="RegisteredUserHome">Easy Car Rental System(Registerd)</a>
+      <div class="d-flex" id="navbarSupportedContent">
+        <button class="btn btn-outline-success" type="submit" id="myAccountButton">My Account</button>
+        <button class="btn btn-outline-success" type="submit" id="rentStatusButton">Rent Status</button>
+        <button class="btn btn-outline-success" type="submit" id="logOutButton">LogOut</button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!--------------------------------------------------Rental-Request-Sending-Section-------------------------------------------------->
+  <div class="container renal-req-section">
+    <form>
+      <div class="col">
+        <div class="row mb-3 mt-4">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+          </div>
+          <div class="col">
+            <label class="driver-check-label">
+              Do You Need A Driver?
+            </label>
+            <div>
+              <div class="form-check d-inline-flex mx-3">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Yes
+                </label>
+              </div>
+              <div class="form-check d-inline-flex mx-3">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                  No
+                </label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col">
+            <input type="text" class="form-control" placeholder="First name" aria-label="First name">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+          </div>
+          <div class="col">
+            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Sign in</button>
+      </div>
+    </form>
 
 
+  </div>
+  <!--------------------------------------------------car-details-section-table-bordered-------------------------------------------------->
+  <div class="car-details-section" >
+    <table class="table table-hover table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <!--------------------------------------------------MyAccount User Interface-------------------------------------------------->
+  <div class="container myAccount-section mt-5 mb-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
 
+        </div>
+        <div class="col-6">
+          <form>
+            <div class="row g-3">
+              <div class="col mb-3">
+                <input type="text" class="form-control" placeholder="First name"
+                       aria-label="First name">
+              </div>
+              <div class="col mb-3">
+                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col mb-3">
+                <input type="text" class="form-control" placeholder="First name"
+                       aria-label="First name">
+              </div>
+              <div class="col input-group mb-3">
+                <!-- <label class="input-group-text" for="inputGroupFile01">Upload</label>-->
+                <input type="file" class="form-control" id="inputGroupFile01">
+              </div>
+            </div>
+            <div class="row g-3">
+              <div class="col mb-3">
+                <input type="text" class="form-control" placeholder="First name"
+                       aria-label="First name">
+              </div>
+              <div class="col mb-3">
+                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
 
+        </div>
+        <div class="col">
 
+        </div>
+      </div>
 
+    </div>
 
-
-
-
-
-
+  </div>
+  <!--------------------------------------------------Renata-Status-Checking-Section-------------------------------------------------->
+  <div class="container rental-status-section">
+    <table class="table table-hover table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Mark</td>
+        <td>Otto</td>
+        <td>@mdo</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>Jacob</td>
+        <td>Thornton</td>
+        <td>@fat</td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td colspan="2">Larry the Bird</td>
+        <td>@twitter</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
 
 
 <script src="asserts/js/bootstrap.min.js"></script>
 <script src="asserts/js/jquery-3.4.1.min.js"></script>
+<script src="asserts/js/main.js"></script>
 </body>
 </html>
