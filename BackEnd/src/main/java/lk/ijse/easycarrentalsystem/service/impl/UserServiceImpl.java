@@ -34,6 +34,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public boolean nicAlreadyExists(String nic) {
+        return userRepo.existsById(nic);
+    }
+
+    @Override
     public void deleteUser(String id) {
         if (!userRepo.existsById(id)) {
             throw new ValidateException("No Customer for Delete..!");

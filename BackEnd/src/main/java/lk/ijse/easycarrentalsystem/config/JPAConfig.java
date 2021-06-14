@@ -14,6 +14,8 @@ import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 
 import javax.naming.NamingException;
 import javax.persistence.EntityManagerFactory;
@@ -60,5 +62,10 @@ public class JPAConfig {
     @Bean
     public PlatformTransactionManager transactionManager(EntityManagerFactory emf) {
         return new JpaTransactionManager(emf);
+    }
+
+    @Bean
+    public MultipartResolver multipartResolver(){
+        return new StandardServletMultipartResolver();
     }
 }
