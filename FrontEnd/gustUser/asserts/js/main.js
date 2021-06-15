@@ -77,6 +77,21 @@ function registerUser() {
 }
 
 $('#login').click(function () {
+    let NIC = $('#loginNIC').val();
+    let password = $('#loginPassword').val();
+
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/BackEnd_war_exploded/api/v1/user/"+NIC,
+        async: true,
+        success:function (resp) {
+            console.log(resp.data);
+            if (resp.data.password==password){
+               location.replace("http://localhost:63342/Easy-Car-Rental-System/FrontEnd/regUser/index.html");
+            }
+        }
+
+    });
+
 
 });
-
