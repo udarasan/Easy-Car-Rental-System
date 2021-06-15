@@ -3,25 +3,16 @@ mainFunction();
 
 function mainFunction() {
     $('.car-details-section').css({display: "block"});
-    $('.login-section').css({display: "none"});
     $('.registration-section').css({display: "none"});
 }
 
 $('#registerButton').click(function () {
     $('.car-details-section').css({display: "none"});
-    $('.login-section').css({display: "none"});
     $('.registration-section').css({display: "block"});
-});
-
-$('#loginButton').click(function () {
-    $('.car-details-section').css({display: "none"});
-    $('.login-section').css({display: "block"});
-    $('.registration-section').css({display: "none"});
 });
 
 $('#gustHome').click(function () {
     $('.car-details-section').css({display: "block"});
-    $('.login-section').css({display: "none"});
     $('.registration-section').css({display: "none"});
 })
 
@@ -76,22 +67,6 @@ function registerUser() {
     });
 }
 
-$('#login').click(function () {
-    let NIC = $('#loginNIC').val();
-    let password = $('#loginPassword').val();
-
-    $.ajax({
-        method: "GET",
-        url: "http://localhost:8080/BackEnd_war_exploded/api/v1/user/"+NIC,
-        async: true,
-        success:function (resp) {
-            console.log(resp.data);
-            if (resp.data.password==password){
-               location.replace("http://localhost:63342/Easy-Car-Rental-System/FrontEnd/regUser/index.html");
-            }
-        }
-
-    });
-
-
-});
+$('#loginButton').click(function () {
+    location.replace("http://localhost:63342/Easy-Car-Rental-System/FrontEnd/regUser/index.html")
+})
