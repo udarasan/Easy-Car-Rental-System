@@ -52,29 +52,31 @@ function registerUser() {
         async: true,
         data: formData,
         success: function (resp) {
-        console.log(resp.data);
-         if (resp.code==200){
-             $.ajax({
-                 method: "POST",
-                 contentType: "application/json",
-                 url: "http://localhost:8080/BackEnd_war_exploded/api/v1/user/registerUser",
-                 data: JSON.stringify({
-                     "nic": nic,
-                     "email": email,
-                     "password": password,
-                     "idPhoto": resp.data,
-                     "address": address,
-                     "contact": contact
-                 })
+            console.log(resp.data);
+            if (resp.code == 200) {
+                $.ajax({
+                    method: "POST",
+                    contentType: "application/json",
+                    url: "http://localhost:8080/BackEnd_war_exploded/api/v1/user/registerUser",
+                    data: JSON.stringify({
+                        "nic": nic,
+                        "email": email,
+                        "password": password,
+                        "idPhoto": resp.data,
+                        "address": address,
+                        "contact": contact
+                    })
 
-             });
-         }else {
-             alert("Please Upload a NID")
-         }
+                });
+            } else {
+                alert("Please Upload a NID")
+            }
 
         }
     });
-
-
 }
+
+$('#login').click(function () {
+
+});
 

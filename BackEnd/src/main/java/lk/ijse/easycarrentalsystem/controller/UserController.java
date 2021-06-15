@@ -23,7 +23,7 @@ public class UserController {
     @Autowired
     private UserService service;
 
-    @PostMapping(path = "/registerUser",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/registerUser", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity saveUser(@RequestBody UserDTO dto) {
         if (dto.getNic().trim().length() <= 0) {
             throw new NotFoundException("User NIC cannot be empty");
@@ -51,13 +51,12 @@ public class UserController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        String filePath="D:/java/Easy-Car-Rental-System/BackEnd/target/BackEnd-1.0.0/uploads"+multipartFile.getOriginalFilename();
+        String filePath = "D:/java/Easy-Car-Rental-System/BackEnd/target/BackEnd-1.0.0/uploads" + multipartFile.getOriginalFilename();
 
 
-        StandardResponse standardResponse = new StandardResponse("200", "Success!",filePath);
+        StandardResponse standardResponse = new StandardResponse("200", "Success!", filePath);
         return new ResponseEntity(standardResponse, HttpStatus.OK);
     }
-
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity getAllUsers() {

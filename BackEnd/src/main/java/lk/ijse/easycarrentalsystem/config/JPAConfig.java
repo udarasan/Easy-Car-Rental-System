@@ -55,6 +55,7 @@ public class JPAConfig {
         va.setDatabase(Database.MYSQL);
         va.setGenerateDdl(true);
         va.setShowSql(true);
+
         return va;
     }
 
