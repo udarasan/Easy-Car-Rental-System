@@ -121,11 +121,13 @@ $('#addCar').click(function () {
                         success:function (rt) {
                             if (rt.code==200){
                                 console.log("wade goda udarayaaaaaa!")
+                                getAllCars();
                             }else {
                                 console.log("uba maha kalakanniyek bn!")
                             }
                         }
                     })
+
              }
         }
     })
@@ -145,9 +147,10 @@ function getAllUsers() {
                 let nic = user.nic;
                 let email = user.email;
                 let password = user.password;
-                let idPhoto = user.idPhoto;
+                let id = user.idPhoto;
                 let address = user.address;
                 let contact = user.contact;
+                let idPhoto="<img style='width: 100px; height: 100px' src='asserts/img/" + id + "'>"
 
                 var row = `<tr><td>${nic}</td><td>${email}</td><td>${password}</td><td>${idPhoto}</td><td>${address}</td><td>${contact}</td></tr>`;
                 $('#customerTable>tbody').append(row);

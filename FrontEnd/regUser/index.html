@@ -1,232 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Reg-Easy-Car-Rental-System</title>
-  <link href="asserts/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Reg-Easy-Car-Rental-System</title>
+    <link href="asserts/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-
-<!---------------------------------------------------header section------------------------------------------------>
+    <!---------------------------------------------------header section------------------------------------------------>
 <header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#" id="RegisteredUserHome">Easy Car Rental System(Registerd)</a>
-      <div class="d-flex" id="navbarSupportedContent">
-        <button class="btn btn-outline-success" type="submit" id="myAccountButton">My Account</button>
-        <button class="btn btn-outline-success" type="submit" id="rentStatusButton">Rent Status</button>
-        <button class="btn btn-outline-success" type="submit" id="logOutButton">LogOut</button>
-      </div>
-    </div>
-  </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" id="RegisteredUserHome">Easy Car Rental System(Registerd) - (
+                <p6 id="userNIC"></p6>
+                )</a>
+
+            <div class="d-flex" id="navbarSupportedContent">
+                <button class="btn btn-outline-success" type="submit" id="myAccountButton">My Account</button>
+                <button class="btn btn-outline-success" type="submit" id="rentStatusButton">Rent Status</button>
+                <button class="btn btn-outline-success" type="submit" id="logOutButton">LogOut</button>
+            </div>
+        </div>
+    </nav>
 </header>
-
 <main>
-  <!--------------------------------------------------Login-Section-------------------------------------------------->
-  <div class="container login-section">
-    <div class="row mt-5 mb-5">
-      <div class="col">
+    <!--------------------------------------------------Login-Section-------------------------------------------------->
+    <div class="container login-section">
+        <div class="row mt-5 mb-5">
+            <div class="col">
 
-      </div>
-      <div class="col-6">
-        <div class="m-5">
-          <form>
-            <div class="mb-3">
-              <label for="loginNIC" class="form-label">NIC</label>
-              <input type="text" class="form-control" id="loginNIC">
             </div>
-            <div class="mb-3">
-              <label for="loginPassword" class="form-label">Password</label>
-              <input type="text" class="form-control" id="loginPassword">
+            <div class="col-6">
+                <div class="m-5">
+                    <form>
+                        <div class="mb-3">
+                            <label for="loginNIC" class="form-label">NIC</label>
+                            <input type="text" class="form-control" id="loginNIC">
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <input type="text" class="form-control" id="loginPassword">
+                        </div>
+                        <button type="button" class="btn btn-primary" id="login">Login</button>
+                    </form>
+                </div>
             </div>
-            <button type="button" class="btn btn-primary" id="login">Login</button>
-          </form>
+            <div class="col">
+
+            </div>
         </div>
-      </div>
-      <div class="col">
-
-      </div>
     </div>
-  </div>
-  <!--------------------------------------------------Rental-Request-Sending-Section-------------------------------------------------->
-  <div class="container renal-req-section">
-    <form>
-      <div class="col">
-        <div class="row mb-3 mt-4">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-          </div>
-          <div class="col">
-            <label class="driver-check-label">
-              Do You Need A Driver?
-            </label>
-            <div>
-              <div class="form-check d-inline-flex mx-3">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  Yes
-                </label>
-              </div>
-              <div class="form-check d-inline-flex mx-3">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                <label class="form-check-label" for="flexRadioDefault2">
-                  No
-                </label>
-              </div>
+    <!--------------------------------------------------Rental-Request-Sending-Section--------------------------------->
+    <div class="container renal-req-section mb-5 ">
+        <form>
+            <div class="col">
+                <div class="row mb-3 mt-4">
+                    <div class="col">
+                        <label>National Identity Card No</label>
+                        <input type="text" class="form-control mt-2" placeholder="NIC" aria-label="NIC">
+                    </div>
+                    <div class="col">
+                        <label>Register No</label>
+                        <input type="text" class="form-control mt-2" placeholder="RegisterNO" aria-label="RegisterNO">
+                    </div>
+                    <div class="col">
+                        <label class="driver-check-label mb-2">
+                            Do You Need A Driver?
+                        </label>
+                        <div>
+                            <div class="form-check d-inline-flex mx-3">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioYES">
+                                <label class="form-check-label" for="radioYES">
+                                    Yes
+                                </label>
+                            </div>
+                            <div class="form-check d-inline-flex mx-3">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioNO" checked>
+                                <label class="form-check-label" for="radioNO">
+                                    No
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label>PickUp Date & Time</label>
+                        <input type="date" class="form-control mt-2" placeholder="Return Date" aria-label="Return Date" >
+                        <input type="time" class="form-control mt-2" placeholder="Return Time" aria-label="Return Time">
+                        <input type="text" class="form-control mt-2" placeholder="Return Venue" aria-label="Return Venue">
+                    </div>
+                    <div class="col">
+                        <label>Return Date & Time</label>
+                        <input type="date" class="form-control mt-2" placeholder="PickUp Date" aria-label="PickUp Date">
+                        <input type="time" class="form-control mt-2" placeholder="PickUP Time" aria-label="PickUP Time">
+                        <input type="text" class="form-control mt-2" placeholder="PickUp Venue" aria-label="PickUp Venue">
+                    </div>
+                    <div class="col mt-5">
+                        <button type="submit" class="btn btn-primary mt-5 px-5 py-3">Send Request</button>
+                    </div>
+                </div>
             </div>
+        </form>
 
-          </div>
-        </div>
-
-        <div class="row mb-3">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-          </div>
-        </div>
-
-        <div class="row mb-3">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-          </div>
-        </div>
-      </div>
-      <div class="col-12">
-        <button type="submit" class="btn btn-primary">Sign in</button>
-      </div>
-    </form>
-
-
-  </div>
-  <!--------------------------------------------------car-details-section-table-bordered-------------------------------------------------->
-  <div class="car-details-section" >
-    <table class="table table-hover table-bordered">
-      <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
-  <!--------------------------------------------------MyAccount User Interface-------------------------------------------------->
-  <div class="container myAccount-section mt-5 mb-5">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-
-        </div>
-        <div class="col-6">
-          <form>
-            <div class="row g-3">
-              <div class="col mb-3">
-                <input type="text" class="form-control" placeholder="First name"
-                       aria-label="First name">
-              </div>
-              <div class="col mb-3">
-                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-              </div>
-            </div>
-            <div class="row g-3">
-              <div class="col mb-3">
-                <input type="text" class="form-control" placeholder="First name"
-                       aria-label="First name">
-              </div>
-              <div class="col input-group mb-3">
-                <!-- <label class="input-group-text" for="inputGroupFile01">Upload</label>-->
-                <input type="file" class="form-control" id="inputGroupFile01">
-              </div>
-            </div>
-            <div class="row g-3">
-              <div class="col mb-3">
-                <input type="text" class="form-control" placeholder="First name"
-                       aria-label="First name">
-              </div>
-              <div class="col mb-3">
-                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-
-        </div>
-        <div class="col">
-
-        </div>
-      </div>
 
     </div>
+    <!--------------------------------------------------car-details-section-table-bordered----------------------------->
+    <div class="car-details-section container" style="overflow-y: scroll; overflow-x: scroll">
+        <table class="table table-hover table-bordered " id="regCarTable">
+            <thead>
+            <tr>
+                <th scope="col">registrationNo</th>
+                <th scope="col">brand</th>
+                <th scope="col">type</th>
+                <th scope="col">frontImage</th>
+                <th scope="col">numberOfPassengers</th>
+                <th scope="col">transmissionType</th>
+                <th scope="col">fuelType</th>
+                <th scope="col">color</th>
+                <th scope="col">dailyRate</th>
+                <th scope="col">monthlyRate</th>
+                <th scope="col">freeMileagePerDay</th>
+                <th scope="col">freeMileagePerMonth</th>
+                <th scope="col">pricePerKm</th>
+                <th scope="col">kmMeterValue</th>
+                <th scope="col">lastReturnDate</th>
+                <th scope="col">isAvailable</th>
+                <th scope="col">isDamaged</th>
+                <th scope="col">underMaintenance</th>
+            </tr>
+            </thead>
+            <tbody>
 
-  </div>
-  <!--------------------------------------------------Renata-Status-Checking-Section-------------------------------------------------->
-  <div class="container rental-status-section">
-    <table class="table table-hover table-bordered">
-      <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-      </tbody>
-    </table>
-  </div>
+            </tbody>
+        </table>
+    </div>
+    <!--------------------------------------------------MyAccount User Interface--------------------------------------->
+    <div class="container myAccount-section mt-5 mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+
+                </div>
+                <div class="col-6">
+                    <form>
+                        <div class="row g-3">
+                            <div class="col mb-3">
+                                <input type="text" class="form-control" placeholder="First name"
+                                       aria-label="First name">
+                            </div>
+                            <div class="col mb-3">
+                                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col mb-3">
+                                <input type="text" class="form-control" placeholder="First name"
+                                       aria-label="First name">
+                            </div>
+                            <div class="col input-group mb-3">
+                                <!-- <label class="input-group-text" for="inputGroupFile01">Upload</label>-->
+                                <input type="file" class="form-control" id="inputGroupFile01">
+                            </div>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col mb-3">
+                                <input type="text" class="form-control" placeholder="First name"
+                                       aria-label="First name">
+                            </div>
+                            <div class="col mb-3">
+                                <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+
+                </div>
+                <div class="col">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!--------------------------------------------------Renata-Status-Checking-Section--------------------------------->
+    <div class="container rental-status-section">
+        <table class="table table-hover table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </main>
-
+<img src="">
 
 <script src="asserts/js/bootstrap.min.js"></script>
 <script src="asserts/js/jquery-3.4.1.min.js"></script>
