@@ -6,11 +6,14 @@ import lk.ijse.easycarrentalsystem.exception.ValidateException;
 import lk.ijse.easycarrentalsystem.repo.CarRepo;
 import lk.ijse.easycarrentalsystem.service.CarService;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.ArrayList;
+import java.util.List;
+
 @Service
 @Transactional
 public class CarServiceImpl implements CarService {
@@ -45,8 +48,10 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public ArrayList<CarDTO> getAllUsers() {
-        return null;
+    public ArrayList<CarDTO> getAllCars() {
+        List<Car> all = carRepo.findAll();
+        return mapper.map(all, new TypeToken<ArrayList<CarDTO>>() {
+        }.getType());
     }
 
     @Override
