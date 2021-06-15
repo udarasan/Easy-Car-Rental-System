@@ -131,5 +131,29 @@ $('#addCar').click(function () {
     })
 
 });
+getAllCustomers();
+function getAllCustomers() {
+    $.ajax({
+        method:"GET",
+        url:"http://localhost:8080/BackEnd_war_exploded/api/v1/user",
+        success:function (resp) {
+        console.log(resp);
+            $('#customerTable>tbody').empty();
+
+            for (let user of resp.data){
+                let nic = user.nic;
+                let email = user.email;
+                let password = user.password;
+                let idPhoto = user.idPhoto;
+                let address = user.address;
+                let contact = user.contact;
+
+                var row = `<tr><td>${nic}</td><td>${email}</td><td>${password}</td><td>${idPhoto}</td><td>${address}</td><td>${contact}</td></tr>`;
+                $('#customerTable>tbody').append(row);
+            }
+        }
+
+    })
+}
 
 
