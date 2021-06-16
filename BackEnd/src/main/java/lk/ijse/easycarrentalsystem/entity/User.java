@@ -19,4 +19,6 @@ public class User {
     private String idPhoto;
     private String address;
     private String contact;
+
+
 }

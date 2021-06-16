@@ -7,7 +7,8 @@ function mainFunction() {
     $('.myAccount-section').css({display: "none"});
     $('.rental-status-section').css({display: "none"});
     $('.login-section').css({display: "block"});
-
+    $('#myAccountButton').css({display: "none"});
+    $('#rentStatusButton').css({display: "none"});
 }
 
 $('#myAccountButton').click(function () {
@@ -51,7 +52,7 @@ $('#login').click(function () {
             if (resp.data.password==password){
                 console.log("ela")
                 loadRegUserDetails(NIC);
-
+                showTopButtons();
 
             }
         }
@@ -68,6 +69,11 @@ function loadRegUserDetails(NIC) {
 $('#userNIC').text(NIC);
     console.log(NIC);
 
+}
+
+function showTopButtons() {
+    $('#myAccountButton').css({display: "block"});
+    $('#rentStatusButton').css({display: "block"});
 }
 
 function getAllCars() {
