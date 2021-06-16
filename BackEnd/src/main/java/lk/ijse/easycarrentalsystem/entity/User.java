@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -19,6 +19,7 @@ public class User {
     private String idPhoto;
     private String address;
     private String contact;
-
-
+    @OneToMany(targetEntity = RentalRequest.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "nic",referencedColumnName = "nic")
+    private List <RentalRequest> rentalRequests;
 }

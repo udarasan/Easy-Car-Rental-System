@@ -25,7 +25,6 @@ public class RentalRequestController {
         if (dto.getRequestId().trim().length() <= 0) {
             throw new NotFoundException("User NIC cannot be empty");
         }
-        System.out.println(dto.getNic());
         System.out.println(dto.getDid());
         service.addRentalRequest(dto);
         return new ResponseEntity(new StandardResponse("201", "Done", dto), HttpStatus.CREATED);
