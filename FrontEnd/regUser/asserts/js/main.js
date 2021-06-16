@@ -61,6 +61,9 @@ $('#login').click(function () {
 
 
 });
+$('#logOutButton').click(function () {
+    loadRegUserDetails(90);
+})
 
 function loadRegUserDetails(NIC) {
     $('.login-section').css({display: "none"});
@@ -110,6 +113,75 @@ function getAllCars() {
         }
 
     })
+}
+
+/*---------------------Rental Request Sending Area*---------------------------/ */
+
+$('#sendRequest').click(function () {
+
+    let s= $("input[name='flexRadioDefault']:checked").val()
+    console.log(s);
+
+    if (s==1){
+        withDriverRentalRequest();
+    }else if (s==2){
+        withoutDriverRentalRequest();
+    }else {
+        console.log("please select Driver or Not")
+    }
+
+})
+
+function withDriverRentalRequest() {
+    console.log("Need A Driver");
+
+}
+function myFunction() {
+    var generateRequestID = Math.floor((Math.random() * 1000) + 1);
+    return generateRequestID;
+
+}
+
+function withoutDriverRentalRequest() {
+    console.log("No Need A Driver");
+
+
+
+    let requestId=myFunction();
+    console.log(requestId)
+    let nic=$('#reNIC').val();
+    let registerNO=$('#reRegisterNO').val();
+    let did="Without Driver";
+    let pickupDate=$('#pickUpDate').val();
+    let pickupTime=$('#pickUPTime').val();
+    let pickupVenue=$('#pickUpVenue').val();
+    let returnDate=$('#returnDate').val();
+    let returnTime=$('#returnTime').val();
+    let returnVenue=$('#returnVenue').val();
+    let requestStatus="Pending"
+    let description="Not Available Now"
+
+    $.ajax({
+        method:"POST",
+        contentType: "application/json",
+        url: "http://localhost:8080/BackEnd_war_exploded/api/v1/rentalRequest/sendRequest",
+        data: JSON.stringify({
+            "requestId": requestId,
+            "nic": nic,
+            "registerNO": registerNO,
+            "did": did,
+            "pickupDate": pickupDate,
+            "pickupTime": pickupTime,
+            "pickupVenue": pickupVenue,
+            "returnDate": returnDate,
+            "returnTime": returnTime,
+            "returnVenue": returnVenue,
+            "requestStatus": requestStatus,
+            "description": description
+                    
+        })
+    })
+
 }
 
 

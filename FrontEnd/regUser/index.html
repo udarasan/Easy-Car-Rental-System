@@ -18,6 +18,7 @@
                 <button class="btn btn-outline-success" type="submit" id="myAccountButton">My Account</button>
                 <button class="btn btn-outline-success" type="submit" id="rentStatusButton">Rent Status</button>
                 <button class="btn btn-outline-success" type="submit" id="logOutButton">LogOut</button>
+
             </div>
         </div>
     </nav>
@@ -56,11 +57,11 @@
                 <div class="row mb-3 mt-4">
                     <div class="col">
                         <label>National Identity Card No</label>
-                        <input type="text" class="form-control mt-2" placeholder="NIC" aria-label="NIC">
+                        <input type="text" class="form-control mt-2" placeholder="NIC" aria-label="NIC" id="reNIC">
                     </div>
                     <div class="col">
                         <label>Register No</label>
-                        <input type="text" class="form-control mt-2" placeholder="RegisterNO" aria-label="RegisterNO">
+                        <input type="text" class="form-control mt-2" placeholder="RegisterNO" aria-label="RegisterNO" id="reRegisterNO">
                     </div>
                     <div class="col">
                         <label class="driver-check-label mb-2">
@@ -68,13 +69,13 @@
                         </label>
                         <div>
                             <div class="form-check d-inline-flex mx-3">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioYES">
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioYES" value="1">
                                 <label class="form-check-label" for="radioYES">
                                     Yes
                                 </label>
                             </div>
                             <div class="form-check d-inline-flex mx-3">
-                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioNO" checked>
+                                <input class="form-check-input" type="radio" name="flexRadioDefault" id="radioNO" value="2">
                                 <label class="form-check-label" for="radioNO">
                                     No
                                 </label>
@@ -85,18 +86,18 @@
                 <div class="row mb-3">
                     <div class="col">
                         <label>PickUp Date & Time</label>
-                        <input type="date" class="form-control mt-2" placeholder="Return Date" aria-label="Return Date" >
-                        <input type="time" class="form-control mt-2" placeholder="Return Time" aria-label="Return Time">
-                        <input type="text" class="form-control mt-2" placeholder="Return Venue" aria-label="Return Venue">
+                        <input type="date" class="form-control mt-2" placeholder="Return Date" aria-label="Return Date" id="returnDate" >
+                        <input type="time" class="form-control mt-2" placeholder="Return Time" aria-label="Return Time" id="returnTime">
+                        <input type="text" class="form-control mt-2" placeholder="Return Venue" aria-label="Return Venue" id="returnVenue">
                     </div>
                     <div class="col">
                         <label>Return Date & Time</label>
-                        <input type="date" class="form-control mt-2" placeholder="PickUp Date" aria-label="PickUp Date">
-                        <input type="time" class="form-control mt-2" placeholder="PickUP Time" aria-label="PickUP Time">
-                        <input type="text" class="form-control mt-2" placeholder="PickUp Venue" aria-label="PickUp Venue">
+                        <input type="date" class="form-control mt-2" placeholder="PickUp Date" aria-label="PickUp Date" id="pickUpDate">
+                        <input type="time" class="form-control mt-2" placeholder="PickUP Time" aria-label="PickUP Time" id="pickUPTime">
+                        <input type="text" class="form-control mt-2" placeholder="PickUp Venue" aria-label="PickUp Venue" id="pickUpVenue">
                     </div>
                     <div class="col mt-5">
-                        <button type="submit" class="btn btn-primary mt-5 px-5 py-3">Send Request</button>
+                        <button type="button" class="btn btn-primary mt-5 px-5 py-3" id="sendRequest">Send Request</button>
                     </div>
                 </div>
             </div>

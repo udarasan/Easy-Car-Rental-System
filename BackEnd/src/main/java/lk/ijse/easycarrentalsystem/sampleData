@@ -22,3 +22,23 @@
     "address": "Godagama",
     "contact": "0712356896"
 }]
+
+
+=================================
+rental request sample data
+================================
+
+{
+    "requestId":"asss",
+    "NIC":"sds",
+    "registerNO":"sds",
+    "DID":"ds",
+    "pickupDate":"sds",
+    "pickupTime":"sds",
+    "pickupVenue":"sdsds",
+    "returnDate":"sdafw",
+    "returnTime":"ehfgh",
+    "returnVenue":"bvb",
+    "requestStatus":"tergv",
+    "description":"bes"
+}
