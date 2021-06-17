@@ -5,8 +5,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -32,4 +33,7 @@ public class Car {
     private String isDamaged;
     private String underMaintenance;
 
+    @OneToMany(targetEntity = RentalRequest.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "registrationNo",referencedColumnName = "registrationNo")
+    private List<RentalRequest> rentalRequests;
 }

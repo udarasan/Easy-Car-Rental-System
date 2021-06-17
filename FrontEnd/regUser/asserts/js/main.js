@@ -131,10 +131,69 @@ $('#sendRequest').click(function () {
     }
 
 })
+/*$('#driver').click(function () {
+   withDriverRentalRequest();
 
+})*/
+function chooseRandomDriver() {
+    var availableDrivers=[];
+    $.ajax({
+        method:"GET",
+        url:"http://localhost:8080/BackEnd_war_exploded/api/v1/drivers",
+        success:function (resp) {
+            for (let did of resp.data){
+                availableDrivers.push(did);
+            }
+            var randomDriver = Math.floor(Math.random() * availableDrivers.length);
+            var driver=(availableDrivers[randomDriver]);
+            sendRequestWithRandomDriver(driver);
+
+        }
+    })
+
+}
+function sendRequestWithRandomDriver(driver) {
+    let requestId=myFunction();
+    console.log(requestId);
+    let nic=$('#reNIC').val();
+    let registerNO=$('#reRegisterNO').val();
+    let did=driver;
+    console.log(did);
+    let pickupDate=$('#pickUpDate').val();
+    let pickupTime=$('#pickUPTime').val();
+    let pickupVenue=$('#pickUpVenue').val();
+    let returnDate=$('#returnDate').val();
+    let returnTime=$('#returnTime').val();
+    let returnVenue=$('#returnVenue').val();
+    let requestStatus="Pending"
+    let description="Not Available Now"
+
+    $.ajax({
+        method:"POST",
+        contentType: "application/json",
+        url: "http://localhost:8080/BackEnd_war_exploded/api/v1/rentalRequest/sendRequest",
+        data: JSON.stringify({
+            "requestId": requestId,
+            "nic": nic,
+            "registrationNo": registerNO,
+            "did": did,
+            "pickupDate": pickupDate,
+            "pickupTime": pickupTime,
+            "pickupVenue": pickupVenue,
+            "returnDate": returnDate,
+            "returnTime": returnTime,
+            "returnVenue": returnVenue,
+            "requestStatus": requestStatus,
+            "description": description
+
+        })
+    })
+
+
+
+}
 function withDriverRentalRequest() {
-    console.log("Need A Driver");
-
+    chooseRandomDriver();
 }
 function myFunction() {
     var generateRequestID = Math.floor((Math.random() * 1000) + 1);
@@ -168,7 +227,7 @@ function withoutDriverRentalRequest() {
         data: JSON.stringify({
             "requestId": requestId,
             "nic": nic,
-            "registerNO": registerNO,
+            "registrationNo": registerNO,
             "did": did,
             "pickupDate": pickupDate,
             "pickupTime": pickupTime,

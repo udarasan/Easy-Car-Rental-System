@@ -14,7 +14,7 @@ public class RentalRequest {
     @Id
     private String requestId;
     private String nic;
-    private String registerNO;
+    private String registrationNo;
     private String did;
     private String pickupDate;
     private String pickupTime;
