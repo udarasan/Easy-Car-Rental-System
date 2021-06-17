@@ -34,9 +34,9 @@ public class UserController {
 
     @PostMapping(path = "/uploadIdImage")
     public ResponseEntity uploadIdImage(@RequestPart("file") MultipartFile multipartFile, @RequestParam String nic) {
-        if (service.nicAlreadyExists(nic)) {
+        /*if (service.nicAlreadyExists(nic)) {
             throw new RuntimeException("Duplicate NIC Entry!");
-        }
+        }*/
         System.out.println(multipartFile.getOriginalFilename());
         try {
             // Let's get the project location
@@ -77,7 +77,7 @@ public class UserController {
         return new ResponseEntity(new StandardResponse("200", "Done", null), HttpStatus.OK);
     }
 
-    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(path = ("/updateUser"),consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity updateUser(@RequestBody UserDTO dto) {
         if (dto.getNic().trim().length() <= 0) {
             throw new NotFoundException("No NIC provided to update");
