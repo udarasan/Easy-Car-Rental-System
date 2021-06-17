@@ -1,6 +1,7 @@
 // loading contex separately
 mainFunction();
 getAllCars();
+
 function mainFunction() {
     $('.car-details-section').css({display: "none"});
     $('.renal-req-section').css({display: "none"});
@@ -53,6 +54,7 @@ $('#login').click(function () {
                 console.log("ela")
                 loadRegUserDetails(NIC);
                 showTopButtons();
+                requestStatusTableDataLoad();
 
             }
         }
@@ -131,10 +133,11 @@ $('#sendRequest').click(function () {
     }
 
 })
-/*$('#driver').click(function () {
-   withDriverRentalRequest();
+$('#driver').click(function () {
+    let NIC=$('#userNIC').text();
+    console.log(NIC);
 
-})*/
+})
 function chooseRandomDriver() {
     var availableDrivers=[];
     $.ajax({
@@ -240,6 +243,43 @@ function withoutDriverRentalRequest() {
                     
         })
     })
+
+}
+
+function requestStatusTableDataLoad() {
+    let NIC=$('#userNIC').text();
+    console.log(NIC)
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/BackEnd_war_exploded/api/v1/rentalRequest/getRentalRequestByNIC/"+NIC,
+        async: true,
+        success:function (resp) {
+            console.log(resp.data);
+            $('.requestStatusTable>tbody').empty();
+
+            for (let request of resp.data){
+                    let requestId=request.requestId;
+                    let nic=request.nic;
+                    let registrationNo=request.registrationNo;
+                    let did=request.did;
+                    let pickupDate=request.pickupDate;
+                    let pickupTime=request.pickupTime;
+                    let pickupVenue=request.pickupVenue;
+                    let returnDate=request.returnDate;
+                    let returnTime=request.returnTime;
+                    let returnVenue=request.returnVenue;
+                    let requestStatus=request.requestStatus;
+                    let description=request.description;
+
+                var row = `<tr><td>${requestId}</td><td>${nic}</td><td>${registrationNo}</td><td>${did}</td><td>${pickupDate}</td><td>${pickupTime}</td><td>${pickupVenue}</td><td>${returnDate}</td><td>${returnTime}</td><td>${returnVenue}</td><td>${requestStatus}</td><td>${description}</td></tr>`;
+                $('.requestStatusTable>tbody').append(row);
+            }
+
+
+
+        }
+
+    });
 
 }
 

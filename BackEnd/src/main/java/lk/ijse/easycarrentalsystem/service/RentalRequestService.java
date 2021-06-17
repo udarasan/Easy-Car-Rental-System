@@ -17,4 +17,8 @@ public interface RentalRequestService {
     ArrayList<RentalRequestDTO> getAllRentalRequest();
 
     void updateRentalRequest(RentalRequestDTO dto);
+
+    ArrayList<RentalRequestDTO> getRentalRequestByNIC(String Id);
+
+    void acceptRentalRequest(String requestStatus,String requestId);
 }

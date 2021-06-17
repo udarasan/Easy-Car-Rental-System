@@ -105,7 +105,7 @@
 
 
     </div>
-    <button class="btn btn-outline-success" type="button" id="driver">driver</button>
+    <!--<button class="btn btn-outline-success" type="button" id="driver">driver</button>-->
 
     <!--------------------------------------------------car-details-section-table-bordered----------------------------->
     <div class="car-details-section container" style="overflow-y: scroll; overflow-x: scroll">
@@ -187,39 +187,32 @@
 
     </div>
     <!--------------------------------------------------Renata-Status-Checking-Section--------------------------------->
-    <div class="container rental-status-section">
-        <table class="table table-hover table-bordered">
+    <div class="container rental-status-section "style="overflow-y: scroll; overflow-x: scroll">
+        <table class="table table-hover table-bordered requestStatusTable">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
+                <th scope="col">RequestID</th>
+                <th scope="col">NIC</th>
+                <th scope="col">RegistrationNo</th>
+                <th scope="col">Driver Status</th>
+                <th scope="col">pickupDate</th>
+                <th scope="col">pickupTime</th>
+                <th scope="col">pickupVenue</th>
+                <th scope="col">returnDate</th>
+                <th scope="col">returnTime</th>
+                <th scope="col">returnVenue</th>
+                <th scope="col">requestStatus</th>
+                <th scope="col">description</th>
+
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-            </tr>
+
             </tbody>
         </table>
     </div>
 </main>
-<img src="">
+
 
 <script src="asserts/js/bootstrap.min.js"></script>
 <script src="asserts/js/jquery-3.4.1.min.js"></script>

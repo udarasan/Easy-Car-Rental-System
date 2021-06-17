@@ -29,7 +29,9 @@ function registerUser() {
     let filename = $('#imgNIC')[0].files[0].name;
     let address = $('#address').val();
     let contact = $('#contact').val();
+
     let formData = new FormData();
+
     for (let file of document.getElementById('imgNIC').files) {
         formData.append("file", file);
     }

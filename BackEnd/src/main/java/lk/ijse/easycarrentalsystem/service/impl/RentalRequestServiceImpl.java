@@ -72,4 +72,17 @@ public class RentalRequestServiceImpl implements RentalRequestService {
 
         }*/
     }
+
+    @Override
+    public ArrayList<RentalRequestDTO> getRentalRequestByNIC(String Id) {
+        List<RentalRequest> all = rentalRequestRepo.getRentalRequestByNIC(Id);
+        return mapper.map(all, new TypeToken<ArrayList<RentalRequestDTO>>() {
+        }.getType());
+    }
+
+    @Override
+    public void acceptRentalRequest(String requestStatus, String requestId) {
+        rentalRequestRepo.acceptRentalRequest(requestStatus,requestId);
+    }
+
 }

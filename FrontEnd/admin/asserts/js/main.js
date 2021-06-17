@@ -45,6 +45,7 @@ $('#viewRentalReqButton').click(function () {
     $('.view-customer-section').css({display: "none"});
     $('.calculate-income-section').css({display: "none"});
     $('.view-rental-request-section').css({display: "block"});
+    requestStatusTableDataLoad();
 })
 
 $('#addCar').click(function () {
@@ -196,3 +197,67 @@ function getAllCars() {
     })
 }
 
+function requestStatusTableDataLoad() {
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/BackEnd_war_exploded/api/v1/rentalRequest",
+        async: true,
+        success:function (resp) {
+            console.log(resp.data);
+            $('.admin-rentalRequestStatusTable>tbody').empty();
+
+            for (let request of resp.data){
+                let requestId=request.requestId;
+                let nic=request.nic;
+                let registrationNo=request.registrationNo;
+                let did=request.did;
+                let pickupDate=request.pickupDate;
+                let pickupTime=request.pickupTime;
+                let pickupVenue=request.pickupVenue;
+                let returnDate=request.returnDate;
+                let returnTime=request.returnTime;
+                let returnVenue=request.returnVenue;
+                let requestStatus=request.requestStatus;
+                let description=request.description;
+
+                var row = `<tr><td>${requestId}</td><td>${nic}</td><td>${registrationNo}</td><td>${did}</td><td>${pickupDate}</td><td>${pickupTime}</td><td>${pickupVenue}</td><td>${returnDate}</td><td>${returnTime}</td><td>${returnVenue}</td><td>${requestStatus}</td><td>${description}</td></tr>`;
+                $('.admin-rentalRequestStatusTable>tbody').append(row);
+            }
+
+
+
+        }
+
+    });
+
+}
+
+$('#accept').click(function () {
+    let reqId=$('#requestId').val();
+    $.ajax({
+        method:"PUT",
+        url:"http://localhost:8080/BackEnd_war_exploded/api/v1/rentalRequest/acceptRentalRequest/"+"Accept"+"/"+reqId,
+
+    })
+})
+$('#denied').click(function () {
+    let reqId=$('#requestId').val();
+    $.ajax({
+        method:"PUT",
+        url:"http://localhost:8080/BackEnd_war_exploded/api/v1/rentalRequest/acceptRentalRequest/"+"Denied"+"/"+reqId,
+
+    })
+})
+$('#pending').click(function () {
+    let reqId=$('#requestId').val();
+    $.ajax({
+        method:"PUT",
+        url:"http://localhost:8080/BackEnd_war_exploded/api/v1/rentalRequest/acceptRentalRequest/"+"Pending"+"/"+reqId,
+
+    })
+})
+
+$('.admin-rentalRequestStatusTable').click(function () {
+    var id = $(this).closest("tr").find('tr:nth-child(1)').text();
+    console.log(id)
+});

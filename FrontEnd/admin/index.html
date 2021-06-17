@@ -297,33 +297,38 @@
                     </div>
                     <div class="row bg-warning">
                         <div class="container">
-                            <table class="table table-hover table-bordered">
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Request Id" id="requestId">
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-primary" type="button" id="accept">Accept</button>
+                                    <button class="btn btn-primary" type="button" id="denied">Denied</button>
+                                    <button class="btn btn-primary" type="button" id="pending">Pending</button>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="container" style="overflow-y: scroll; overflow-x: scroll">
+                            <table class="table table-hover table-bordered admin-rentalRequestStatusTable">
                                 <thead>
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
+                                    <th scope="col">RequestID</th>
+                                    <th scope="col">NIC</th>
+                                    <th scope="col">RegistrationNo</th>
+                                    <th scope="col">Driver Status</th>
+                                    <th scope="col">pickupDate</th>
+                                    <th scope="col">pickupTime</th>
+                                    <th scope="col">pickupVenue</th>
+                                    <th scope="col">returnDate</th>
+                                    <th scope="col">returnTime</th>
+                                    <th scope="col">returnVenue</th>
+                                    <th scope="col">requestStatus</th>
+                                    <th scope="col">description</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td colspan="2">Larry the Bird</td>
-                                    <td>@twitter</td>
-                                </tr>
+
                                 </tbody>
                             </table>
                         </div>
