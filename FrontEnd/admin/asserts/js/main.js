@@ -173,7 +173,7 @@ function getAllCars() {
                 let registrationNo=car.registrationNo;
                 let brand=car.brand;
                 let type=car.type;
-                let frontImage=car.frontImage;
+                let id=car.frontImage;
                 let numberOfPassengers=car.numberOfPassengers;
                 let transmissionType=car.transmissionType;
                 let fuelType=car.fuelType;
@@ -188,6 +188,7 @@ function getAllCars() {
                 let isAvailable=car.isAvailable
                 let isDamaged=car.isDamaged;
                 let underMaintenance=car.underMaintenance;
+                let frontImage="<img style='width: 100px; height: 100px' src='asserts/img/" + id + "'>"
 
                 var row = `<tr><td>${registrationNo}</td><td>${brand}</td><td>${type}</td><td>${frontImage}</td><td>${numberOfPassengers}</td><td>${transmissionType}</td><td>${fuelType}</td><td>${color}</td><td>${dailyRate}</td><td>${monthlyRate}</td><td>${freeMileagePerDay}</td><td>${freeMileagePerMonth}</td><td>${pricePerKm}</td><td>${kmMeterValue}</td><td>${lastReturnDate}</td><td>${isAvailable}</td><td>${isDamaged}</td><td>${underMaintenance}</td></tr>`;
                 $('#carTable>tbody').append(row);

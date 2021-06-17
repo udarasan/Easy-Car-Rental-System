@@ -41,18 +41,18 @@ public class CarController {
         System.out.println(multipartFile.getOriginalFilename());
         try {
             // Let's get the project location
-            String projectPath = new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile().getParentFile().getAbsolutePath();
+            //String projectPath = new File(this.getClass().getProtectionDomain().getCodeSource().getLocation().toURI()).getParentFile().getParentFile().getAbsolutePath();
             // Let's create a folder there for uploading purposes, if not exists
-            File uploadsDir = new File(projectPath + "/uploads/CarImages");
+            File uploadsDir = new File("D:/java/Easy-Car-Rental-System/FrontEnd/admin/asserts/img");
             uploadsDir.mkdir();
             // It is time to transfer the file into the newly created dir
             multipartFile.transferTo(new File(uploadsDir.getAbsolutePath() + "/" + multipartFile.getOriginalFilename()));
-        } catch (URISyntaxException e) {
+        } /*catch (URISyntaxException e) {
             e.printStackTrace();
-        } catch (IOException e) {
+        }*/ catch (IOException e) {
             e.printStackTrace();
         }
-        String filePath = "D:/java/Easy-Car-Rental-System/BackEnd/target/BackEnd-1.0.0/uploads/CarImages/" + multipartFile.getOriginalFilename();
+        String filePath = multipartFile.getOriginalFilename();
 
 
         StandardResponse standardResponse = new StandardResponse("200", "Success!", filePath);
