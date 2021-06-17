@@ -63,5 +63,9 @@ public class CarController {
         ArrayList<CarDTO> allCars = carService.getAllCars();
         return new ResponseEntity(new StandardResponse("200", "Done", allCars), HttpStatus.OK);
     }
-
+    @GetMapping(path = ("/getAvailableCars"),produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity getAvailableCars() {
+        ArrayList<CarDTO> allAvailableCars = carService.getAvailableCars();
+        return new ResponseEntity(new StandardResponse("200", "Done", allAvailableCars), HttpStatus.OK);
+    }
 }

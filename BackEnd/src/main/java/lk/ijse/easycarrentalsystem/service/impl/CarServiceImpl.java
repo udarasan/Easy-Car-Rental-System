@@ -58,4 +58,11 @@ public class CarServiceImpl implements CarService {
     public void updateCar(CarDTO dto) {
 
     }
+
+    @Override
+    public ArrayList<CarDTO> getAvailableCars() {
+        List<Car> allAvailableCars=carRepo.getAvailableCars();
+        return mapper.map(allAvailableCars,new TypeToken<ArrayList<CarDTO>>(){
+        }.getType());
+    }
 }

@@ -84,7 +84,7 @@ function showTopButtons() {
 function getAllCars() {
     $.ajax({
         method:"GET",
-        url:"http://localhost:8080/BackEnd_war_exploded/api/v1/car",
+        url:"http://localhost:8080/BackEnd_war_exploded/api/v1/car/getAvailableCars",
         success:function (resp) {
             console.log(resp);
             $('#regCarTable>tbody').empty();
