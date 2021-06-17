@@ -19,6 +19,7 @@ public class User {
     private String idPhoto;
     private String address;
     private String contact;
+
     @OneToMany(targetEntity = RentalRequest.class,cascade = CascadeType.ALL)
     @JoinColumn(name = "nic",referencedColumnName = "nic")
     private List <RentalRequest> rentalRequests;

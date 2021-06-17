@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,4 +24,16 @@ public class RentalRequest {
     private String returnVenue;
     private String requestStatus;
     private String description;
+
+    /*@ManyToOne(targetEntity = User.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "nic",referencedColumnName = "nic")
+    private User user;
+
+    @ManyToOne(targetEntity = Car.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "registrationNo",referencedColumnName = "registrationNo")
+    private Car car;
+
+    @ManyToOne(targetEntity = Driver.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "did",referencedColumnName = "did")
+    private Driver driver;*/
 }
