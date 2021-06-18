@@ -322,3 +322,16 @@ $('#changeDriver').click(function () {
         }
     })
 })
+
+$('#addMaintain').click(function () {
+    let requestId=$('#registrationNo').val();
+    $.ajax({
+        method:"PUT",
+        url:"http://localhost:8080/BackEnd_war_exploded/api/v1/car/addMaintain/"+requestId,
+        success:function (resp) {
+            console.log(resp.message);
+            getAllCars();
+
+        }
+    })
+})

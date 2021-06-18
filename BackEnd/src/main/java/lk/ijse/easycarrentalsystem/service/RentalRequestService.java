@@ -23,4 +23,6 @@ public interface RentalRequestService {
     void acceptRentalRequest(String requestStatus,String requestId);
 
     void changeDriver(String driverName,String requestId);
+
+
 }

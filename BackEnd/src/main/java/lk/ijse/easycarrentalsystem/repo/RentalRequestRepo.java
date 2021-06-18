@@ -20,4 +20,5 @@ public interface RentalRequestRepo extends JpaRepository<RentalRequest,String> {
     @Modifying
     @Query(value = "update RentalRequest set did =?1 where requestId =?2",nativeQuery = true)
     void changeDriver(String did,String requestId);
+
 }

@@ -65,4 +65,9 @@ public class CarServiceImpl implements CarService {
         return mapper.map(allAvailableCars,new TypeToken<ArrayList<CarDTO>>(){
         }.getType());
     }
+
+    @Override
+    public void addMaintain(String requestId) {
+        carRepo.addMaintain(requestId);
+    }
 }

@@ -19,4 +19,6 @@ public interface CarService {
     void updateCar(CarDTO dto);
 
     ArrayList<CarDTO>getAvailableCars();
+
+    void addMaintain(String requestId);
 }
