@@ -5,6 +5,8 @@ function mainFunction() {
     $('.view-customer-section').css({display: "none"});
     $('.calculate-income-section').css({display: "none"});
     $('.view-rental-request-section').css({display: "none"});
+    $('.view-rental-request-section-changeDriver').css({display:"none"});
+    $('.view-rental-request-section-calculate-payment').css({display:"none"});
 }
 
 $('#dashboardButton').click(function () {
@@ -45,8 +47,30 @@ $('#viewRentalReqButton').click(function () {
     $('.view-customer-section').css({display: "none"});
     $('.calculate-income-section').css({display: "none"});
     $('.view-rental-request-section').css({display: "block"});
+    $('.view-rental-request-section-changeDriver').css({display:"none"});
+    $('.view-rental-request-section-calculate-payment').css({display:"none"});
     requestStatusTableDataLoad();
 })
+
+$('#acceptDenyRentalButton').click(function () {
+
+    $('.accept-request').css({display: "block"});
+    $('.view-rental-request-section-changeDriver').css({display:"none"});
+    $('.view-rental-request-section-calculate-payment').css({display:"none"});
+})
+$('#changeAssignedDriverButton').click(function () {
+
+    $('.accept-request').css({display: "none"});
+    $('.view-rental-request-section-changeDriver').css({display:"block"});
+    $('.view-rental-request-section-calculate-payment').css({display:"none"});
+})
+$('#calculatePaymentButton').click(function () {
+
+    $('.accept-request').css({display: "none"});
+    $('.view-rental-request-section-changeDriver').css({display:"none"});
+    $('.view-rental-request-section-calculate-payment').css({display:"block"});
+})
+
 
 $('#addCar').click(function () {
 
@@ -262,3 +286,39 @@ $('.admin-rentalRequestStatusTable').click(function () {
     var id = $(this).closest("tr").find('tr:nth-child(1)').text();
     console.log(id)
 });
+
+$('#changeAssignedDriverButton').click(function () {
+    console.log("op")
+    $.ajax({
+        method:"GET",
+        url:"http://localhost:8080/BackEnd_war_exploded/api/v1/drivers/allAvailableDriversDetails",
+        success:function (resp) {
+            console.log(resp);
+                $('.admin-diver>tbody').empty();
+            for (let driver of resp.data){
+                let did=driver.did;
+                let name=driver.name;
+                let contact=driver.contact;
+                let isAvailable=driver.isAvailable;
+
+                var row = `<tr><td>${did}</td><td>${name}</td></tr>`;
+                $('.admin-diver>tbody').append(row);
+            }
+
+
+        }
+    })
+})
+$('#changeDriver').click(function () {
+    let requestId=$('#changeRequestId').val();
+    let did=$('#changeDid').val();
+    $.ajax({
+        method:"PUT",
+        url:"http://localhost:8080/BackEnd_war_exploded/api/v1/rentalRequest/changeDriver/"+did+"/"+requestId,
+        success:function (resp) {
+            console.log(resp.message);
+            requestStatusTableDataLoad();
+
+        }
+    })
+})

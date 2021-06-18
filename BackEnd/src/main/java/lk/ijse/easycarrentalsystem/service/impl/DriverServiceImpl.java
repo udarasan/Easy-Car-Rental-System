@@ -1,5 +1,7 @@
 package lk.ijse.easycarrentalsystem.service.impl;
 
+import lk.ijse.easycarrentalsystem.dto.DriverDTO;
+import lk.ijse.easycarrentalsystem.entity.Driver;
 import lk.ijse.easycarrentalsystem.repo.DriverRepo;
 import lk.ijse.easycarrentalsystem.service.DriverService;
 import org.modelmapper.ModelMapper;
@@ -25,4 +27,12 @@ public class DriverServiceImpl implements DriverService {
     return mapper.map(getAvailableDrivers,new TypeToken<ArrayList<String>>(){}.getType());
 
     }
+
+    @Override
+    public ArrayList<DriverDTO> getAllAvailableDriversDetails() {
+        List<Driver>allDrivers=driverRepo.getAllAvailableDriversDetails();
+        return mapper.map(allDrivers,new TypeToken<ArrayList<DriverDTO>>(){}.getType());
+    }
+
+
 }

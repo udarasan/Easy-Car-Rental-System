@@ -85,4 +85,9 @@ public class RentalRequestServiceImpl implements RentalRequestService {
         rentalRequestRepo.acceptRentalRequest(requestStatus,requestId);
     }
 
+    @Override
+    public void changeDriver(String did, String requestId) {
+        rentalRequestRepo.changeDriver(did,requestId);
+    }
+
 }

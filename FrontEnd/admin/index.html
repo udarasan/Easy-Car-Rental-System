@@ -295,7 +295,8 @@
                             </nav>
                         </div>
                     </div>
-                    <div class="row bg-warning">
+                    <!-------------------------------------------------------View-Rental-Request section(Accept Request)--------------------------------------------------->
+                    <div class="row bg-warning accept-request">
                         <div class="container">
                             <div class="row">
                                 <div class="col">
@@ -333,12 +334,115 @@
                             </table>
                         </div>
                     </div>
-                </div>
-                    <!-------------------------------------------------------View-Rental-Request section(Accept Request)--------------------------------------------------->
-
                     <!-------------------------------------------------------View-Rental-Request section(Change Driver)--------------------------------------------------->
+                    <div class="row bg-warning view-rental-request-section-changeDriver">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Request Id" id="changeRequestId">
+                                    <input type="text" class="form-control" placeholder="Request Id" id="changeDid">
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-primary" type="button" id="changeDriver">Change</button>
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="row">
+                                <div class="col-9">
+                                    <div class="container row" style="overflow-y: scroll; overflow-x: scroll">
+                                        <table class="table table-hover table-bordered admin-rentalRequestStatusTable">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">RequestID</th>
+                                                <th scope="col">NIC</th>
+                                                <th scope="col">RegistrationNo</th>
+                                                <th scope="col">Driver Status</th>
+                                                <th scope="col">pickupDate</th>
+                                                <th scope="col">pickupTime</th>
+                                                <th scope="col">pickupVenue</th>
+                                                <th scope="col">returnDate</th>
+                                                <th scope="col">returnTime</th>
+                                                <th scope="col">returnVenue</th>
+                                                <th scope="col">requestStatus</th>
+                                                <th scope="col">description</th>
 
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="container row" style="overflow-y: scroll; overflow-x: scroll">
+                                            <table class="table table-hover table-bordered admin-diver">
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">DID</th>
+                                                <th scope="col">Name</th>
+                                                <!--<th scope="col">Contact</th>
+                                                <th scope="col">Is Available</th>
+                                                <td>${contact}</td><td>${isAvailable}</td>-->
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
                     <!-------------------------------------------------------View-Rental-Request section(Calculate Payment)--------------------------------------------------->
+                    <div class="row bg-warning view-rental-request-section-calculate-payment">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <input type="text" class="form-control" placeholder="Request Id" id="requestId">
+                                </div>
+                                <div class="col">
+                                    <button class="btn btn-primary" type="button" id="accept">Accept</button>
+                                    <button class="btn btn-primary" type="button" id="denied">Denied</button>
+                                    <button class="btn btn-primary" type="button" id="pending">Pending</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container" style="overflow-y: scroll; overflow-x: scroll">
+                            <table class="table table-hover table-bordered admin-rentalRequestStatusTable">
+                                <thead>
+                                <tr>
+                                    <th scope="col">RequestID</th>
+                                    <th scope="col">NIC</th>
+                                    <th scope="col">RegistrationNo</th>
+                                    <th scope="col">Driver Status</th>
+                                    <th scope="col">pickupDate</th>
+                                    <th scope="col">pickupTime</th>
+                                    <th scope="col">pickupVenue</th>
+                                    <th scope="col">returnDate</th>
+                                    <th scope="col">returnTime</th>
+                                    <th scope="col">returnVenue</th>
+                                    <th scope="col">requestStatus</th>
+                                    <th scope="col">description</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
 
             </div>
         </div>

@@ -49,4 +49,9 @@ public class RentalRequestController {
         service.acceptRentalRequest(requestStatus,requestId);
         return new ResponseEntity(new StandardResponse("200", "Done", "done"), HttpStatus.OK);
     }
+    @PutMapping(path = "changeDriver/{did}/{requestId}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity changeDriver(@PathVariable String did,@PathVariable String requestId) {
+        service.changeDriver(did,requestId);
+        return new ResponseEntity(new StandardResponse("200", "Done", "done"), HttpStatus.OK);
+    }
 }

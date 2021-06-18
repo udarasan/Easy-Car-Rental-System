@@ -21,4 +21,6 @@ public interface RentalRequestService {
     ArrayList<RentalRequestDTO> getRentalRequestByNIC(String Id);
 
     void acceptRentalRequest(String requestStatus,String requestId);
+
+    void changeDriver(String driverName,String requestId);
 }
