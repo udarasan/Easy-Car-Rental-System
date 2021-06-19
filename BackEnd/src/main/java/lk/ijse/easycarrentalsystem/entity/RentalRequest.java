@@ -24,6 +24,8 @@ public class RentalRequest {
     private String returnVenue;
     private String requestStatus;
     private String description;
+    //new1
+    private String bankSlip;
 
     /*@ManyToOne(targetEntity = User.class,cascade = CascadeType.ALL)
     @JoinColumn(name = "nic",referencedColumnName = "nic")

@@ -22,4 +22,6 @@ public class RentalRequestDTO {
 
     private String requestStatus;
     private String description;
+    //new1
+    private String bankSlip;
 }

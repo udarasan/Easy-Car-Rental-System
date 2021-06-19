@@ -173,28 +173,53 @@ function sendRequestWithRandomDriver(driver) {
     let requestStatus="Pending"
     let description="Not Available Now"
 
+    let formData=new FormData();
+    for (let file of document.getElementById('imgBankSlip').files) {
+        formData.append("file", file);
+    }
     $.ajax({
         method:"POST",
-        contentType: "application/json",
-        url: "http://localhost:8080/BackEnd_war_exploded/api/v1/rentalRequest/sendRequest",
-        data: JSON.stringify({
-            "requestId": requestId,
-            "nic": nic,
-            "registrationNo": registerNO,
-            "did": did,
-            "pickupDate": pickupDate,
-            "pickupTime": pickupTime,
-            "pickupVenue": pickupVenue,
-            "returnDate": returnDate,
-            "returnTime": returnTime,
-            "returnVenue": returnVenue,
-            "requestStatus": requestStatus,
-            "description": description
+        contentType:false,
+        processData:false,
+        url:"http://localhost:8080/BackEnd_war_exploded/api/v1/rentalRequest/uploadBankSlipImage",
+        async:true,
+        data:formData,
+        success:function (resp){
+            console.log(resp.data);
 
-        })
+            if (resp.code==200){
+                $.ajax({
+                    method:"POST",
+                    contentType: "application/json",
+                    url: "http://localhost:8080/BackEnd_war_exploded/api/v1/rentalRequest/sendRequest",
+                    data: JSON.stringify({
+                        "requestId": requestId,
+                        "nic": nic,
+                        "registrationNo": registerNO,
+                        "did": did,
+                        "pickupDate": pickupDate,
+                        "pickupTime": pickupTime,
+                        "pickupVenue": pickupVenue,
+                        "returnDate": returnDate,
+                        "returnTime": returnTime,
+                        "returnVenue": returnVenue,
+                        "requestStatus": requestStatus,
+                        "description": description,
+                        'bankSlip': resp.data,
+                    }),
+                    success:function (rt) {
+                        if (rt.code==201){
+                            console.log("wade goda udarayaaaaaa!")
+                            getAllCars();
+                        }else {
+                            console.log("uba maha kalakanniyek bn!")
+                        }
+                    }
+                })
+
+            }
+        }
     })
-
-
 
 }
 function withDriverRentalRequest() {
@@ -208,8 +233,69 @@ function myFunction() {
 
 function withoutDriverRentalRequest() {
     console.log("No Need A Driver");
+    let requestId=myFunction();
+    console.log(requestId);
+    let nic=$('#reNIC').val();
+    let registerNO=$('#reRegisterNO').val();
+    let did="Without driver";
+    let pickupDate=$('#pickUpDate').val();
+    let pickupTime=$('#pickUPTime').val();
+    let pickupVenue=$('#pickUpVenue').val();
+    let returnDate=$('#returnDate').val();
+    let returnTime=$('#returnTime').val();
+    let returnVenue=$('#returnVenue').val();
+    let requestStatus="Pending"
+    let description="Not Available Now"
 
+    let formData=new FormData();
+    for (let file of document.getElementById('imgBankSlip').files) {
+        formData.append("file", file);
+    }
+    $.ajax({
+        method:"POST",
+        contentType:false,
+        processData:false,
+        url:"http://localhost:8080/BackEnd_war_exploded/api/v1/rentalRequest/uploadBankSlipImage",
+        async:true,
+        data:formData,
+        success:function (resp){
+            console.log(resp.data);
 
+            if (resp.code==200){
+                $.ajax({
+                    method:"POST",
+                    contentType: "application/json",
+                    url: "http://localhost:8080/BackEnd_war_exploded/api/v1/rentalRequest/sendRequest",
+                    data: JSON.stringify({
+                        "requestId": requestId,
+                        "nic": nic,
+                        "registrationNo": registerNO,
+                        "did": did,
+                        "pickupDate": pickupDate,
+                        "pickupTime": pickupTime,
+                        "pickupVenue": pickupVenue,
+                        "returnDate": returnDate,
+                        "returnTime": returnTime,
+                        "returnVenue": returnVenue,
+                        "requestStatus": requestStatus,
+                        "description": description,
+                        'bankSlip': resp.data,
+                    }),
+                    success:function (rt) {
+                        if (rt.code==201){
+                            console.log("wade goda udarayaaaaaa!")
+                            getAllCars();
+                        }else {
+                            console.log("uba maha kalakanniyek bn!")
+                        }
+                    }
+                })
+
+            }
+        }
+    })
+
+/*
 
     let requestId=myFunction();
     console.log(requestId)
@@ -244,7 +330,7 @@ function withoutDriverRentalRequest() {
             "description": description
                     
         })
-    })
+    })*/
 
 }
 

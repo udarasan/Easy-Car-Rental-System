@@ -249,8 +249,12 @@ function requestStatusTableDataLoad() {
                 let returnVenue=request.returnVenue;
                 let requestStatus=request.requestStatus;
                 let description=request.description;
+                let id=request.bankSlip;
+                console.log(id)
+                let bankSlip="<img style='width: 100px; height: 100px' src='../regUser/asserts/img/" + id + "'>"
 
-                var row = `<tr><td>${requestId}</td><td>${nic}</td><td>${registrationNo}</td><td>${did}</td><td>${pickupDate}</td><td>${pickupTime}</td><td>${pickupVenue}</td><td>${returnDate}</td><td>${returnTime}</td><td>${returnVenue}</td><td>${requestStatus}</td><td>${description}</td></tr>`;
+
+                var row = `<tr><td>${requestId}</td><td>${nic}</td><td>${registrationNo}</td><td>${did}</td><td>${pickupDate}</td><td>${pickupTime}</td><td>${pickupVenue}</td><td>${returnDate}</td><td>${returnTime}</td><td>${returnVenue}</td><td>${requestStatus}</td><td>${description}</td><td>${bankSlip}</td></tr>`;
                 $('.admin-rentalRequestStatusTable>tbody').append(row);
             }
 
