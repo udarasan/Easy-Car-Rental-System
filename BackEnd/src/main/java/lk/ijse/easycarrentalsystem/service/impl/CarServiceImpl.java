@@ -70,4 +70,11 @@ public class CarServiceImpl implements CarService {
     public void addMaintain(String requestId) {
         carRepo.addMaintain(requestId);
     }
+
+    @Override
+    public ArrayList<CarDTO> getASpecificCar(String registrationNo) {
+        List<Car> getASpecificCar=carRepo.getASpecificCar(registrationNo);
+        return mapper.map(getASpecificCar,new TypeToken<ArrayList<CarDTO>>(){
+        }.getType());
+    }
 }

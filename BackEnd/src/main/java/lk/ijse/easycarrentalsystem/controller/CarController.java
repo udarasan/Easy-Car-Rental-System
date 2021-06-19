@@ -73,4 +73,9 @@ public class CarController {
         carService.addMaintain(requestId);
         return new ResponseEntity(new StandardResponse("200", "Done", "done"), HttpStatus.OK);
     }
+    @GetMapping(path = "getASpecificCar/{registrationNo}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity getASpecificCar(@PathVariable String registrationNo) {
+        ArrayList<CarDTO> getASpecificCar=carService.getASpecificCar(registrationNo);
+        return new ResponseEntity(new StandardResponse("200", "Done", getASpecificCar), HttpStatus.OK);
+    }
 }

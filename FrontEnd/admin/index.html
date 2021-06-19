@@ -405,17 +405,28 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Request Id" id="requestId">
+                                    <input type="text" class="form-control" placeholder="Request Id" id="reqId">
+                                    <input type="text" class="form-control" placeholder="Driver ID" id="did">
+                                    <input type="text" class="form-control" placeholder="Registration No" id="regNo">
+                                    <input type="text" class="form-control" placeholder="PickUP-Date" id="pickDate">
+                                    <input type="text" class="form-control" placeholder="Return-Date" id="returnDate">
                                 </div>
                                 <div class="col">
-                                    <button class="btn btn-primary" type="button" id="accept">Accept</button>
-                                    <button class="btn btn-primary" type="button" id="denied">Denied</button>
-                                    <button class="btn btn-primary" type="button" id="pending">Pending</button>
+
+                                    <input type="text" class="form-control" placeholder="NoOFDates" id="NoOFDates">
+                                    <input type="text" class="form-control" placeholder="MeeterValue" id="MeeterValue">
+                                    <input type="text" class="form-control" placeholder="Payment" id="payment">
+                                    <!--<input type="text" class="form-control" placeholder="Damage Amount" id="damageAmount">-->
+                                    <button type="button" class="btn btn-primary" id="calculatePayment">Check Request</button>
                                 </div>
+
+                            </div>
+                            <div class="row">
+                                <button type="button" class="btn btn-primary">Primary</button>
                             </div>
                         </div>
                         <div class="container" style="overflow-y: scroll; overflow-x: scroll">
-                            <table class="table table-hover table-bordered admin-rentalRequestStatusTable">
+                            <table class="table table-hover table-bordered admin-rentalRequestStatusTable" id="admin-rentalRequestStatusTable">
                                 <thead>
                                 <tr>
                                     <th scope="col">RequestID</th>

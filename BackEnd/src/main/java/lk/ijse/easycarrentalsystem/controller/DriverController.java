@@ -29,4 +29,5 @@ public class DriverController {
         ArrayList<DriverDTO> allAvailableDriversDetails = driverService.getAllAvailableDriversDetails();
         return new ResponseEntity(new StandardResponse("200", "Done", allAvailableDriversDetails), HttpStatus.OK);
     }
+
 }

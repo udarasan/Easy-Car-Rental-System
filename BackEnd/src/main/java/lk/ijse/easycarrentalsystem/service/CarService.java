@@ -21,4 +21,6 @@ public interface CarService {
     ArrayList<CarDTO>getAvailableCars();
 
     void addMaintain(String requestId);
+
+    ArrayList<CarDTO>getASpecificCar(String registrationNo);
 }

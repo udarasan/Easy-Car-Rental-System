@@ -386,6 +386,120 @@ $(document).ready(function () {
     console.log("curRowId");
 
 })
+$(document).ready(function () {
+    $(document).on('click','#admin-rentalRequestStatusTable tbody tr',function () {
+        var col0=$(this).find('td:eq(0)').text();
+        var col1=$(this).find('td:eq(1)').text();
+        var col2=$(this).find('td:eq(2)').text();
+        var col3=$(this).find('td:eq(3)').text();
+        var col4=$(this).find('td:eq(4)').text();
+        var col5=$(this).find('td:eq(5)').text();
+        var col6=$(this).find('td:eq(6)').text();
+        var col7=$(this).find('td:eq(7)').text();
+        var col8=$(this).find('td:eq(8)').text();/*
+        var col9=$(this).find('td:eq(9)').text();
+        var col10=$(this).find('td:eq(10)').text();
+        var col11=$(this).find('td:eq(11)').text();
+        var col12=$(this).find('td:eq(12)').text();
+        var col13=$(this).find('td:eq(13)').text();
+        var col14=$(this).find('td:eq(14)').text();
+        var col15=$(this).find('td:eq(15)').text();*/
+
+        $('#reqId').val(col0);
+        $('#did').val(col3);
+        $('#regNo').val(col2);
+        $('#pickDate').val(col4);
+        $('#returnDate').val(col7);/*
+        $('#NoOFDates').val(col5);
+        $('#MeeterValue').val(col6);
+        $('#payment').val(col7);
+        $('#dailyRate').val(col8);
+        $('#monthlyRate').val(col9);
+        $('#freeMileagePerDay').val(col10);
+        $('#freeMileagePerMonth').val(col11);
+        $('#pricePerKm').val(col12);
+        $('#kmMeterValue').val(col13);
+        $('#lastReturnDate').val(col14);
+        $('#lossDamageWaiver').val(col15);*/
+
+
+    })
+
+})
+$('#calculatePayment').click(function () {
+    let registerNO=$('#regNo').val();
+    let noOfDates=$('#NoOFDates').val();
+    /*let damageAmount=$('#damageAmount').val();*/
+
+    $.ajax({
+        method:"GET",
+        url:"http://localhost:8080/BackEnd_war_exploded/api/v1/car/getASpecificCar/"+registerNO,
+        success:function (resp) {
+            console.log(resp);
+            for (let car of resp.data) {
+                let registrationNo = car.registrationNo;
+                let brand = car.brand;
+                let type = car.type;
+                let numberOfPassengers = car.numberOfPassengers;
+                let transmissionType = car.transmissionType;
+                let fuelType = car.fuelType;
+                let color = car.color;
+                let dailyRate = car.dailyRate;
+                let monthlyRate = car.monthlyRate;
+                let freeMileagePerDay = car.freeMileagePerDay;
+                let freeMileagePerMonth = car.freeMileagePerMonth;
+                let pricePerKm = car.pricePerKm;
+                var kmMeterValue = car.kmMeterValue;
+                let lastReturnDate = car.lastReturnDate;
+                let isAvailable = car.isAvailable
+                let isDamaged = car.isDamaged;
+                let underMaintenance = car.underMaintenance;
+                let frontImage = car.frontImage;
+                let lossDamageWaiver = car.lossDamageWaiver;
+                generatePayment(dailyRate,monthlyRate,freeMileagePerDay,freeMileagePerMonth,pricePerKm,kmMeterValue,lossDamageWaiver);
+            }
+
+        }
+
+    })
+
+function generatePayment(dailyRate,monthlyRate,freeMileagePerDay,freeMileagePerMonth,pricePerKm,kmMeterValue,lossDamageWaiver) {
+
+    let currentMeterValue=$('#MeeterValue').val();
+    let nowKmValue=kmMeterValue-currentMeterValue;
+
+    if (noOfDates<=29){
+        console.log("-30")
+        if (nowKmValue<=100){
+            console.log(-100)
+            let payablePrice=(noOfDates*dailyRate);
+            console.log(payablePrice);
+
+        }else {
+            console.log(+100)
+            let exKM=nowKmValue-100;
+            let payablePrice=(exKM*pricePerKm)+(dailyRate*noOfDates);
+            console.log(payablePrice);
+        }
+    }else {
+        console.log("30+")
+        let noOfMonth=noOfDates/30;
+        let noOFExtraDates=noOfDates%30;
+        if (nowKmValue<=2400){
+            console.log(-2400)
+            let payablePrice=(noOfMonth*monthlyRate)+(noOFExtraDates*dailyRate);
+            console.log(payablePrice);
+        }else {
+            console.log(+2400)
+            let exKM=nowKmValue-2400;
+            let payablePrice=(noOfMonth*monthlyRate)+(noOFExtraDates*dailyRate)+(exKM*pricePerKm);
+            console.log(payablePrice);
+        }
+    }
+}
+
+
+})
 
 
 
