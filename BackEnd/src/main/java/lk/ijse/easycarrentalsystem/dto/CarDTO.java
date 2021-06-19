@@ -28,4 +28,6 @@ public class CarDTO {
     private String isAvailable;
     private String isDamaged;
     private String underMaintenance;
+    //new
+    private double lossDamageWaiver;
 }

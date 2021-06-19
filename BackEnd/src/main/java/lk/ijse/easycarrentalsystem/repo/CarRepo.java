@@ -13,6 +13,6 @@ public interface CarRepo extends JpaRepository<Car,String> {
     List<Car> getAvailableCars();
 
     @Modifying
-    @Query(value = "update Car set underMaintenance ='YES' where registrationNo=?1",nativeQuery = true)
+    @Query(value = "update Car set underMaintenance ='YES',isAvailable ='NO' where registrationNo=?1",nativeQuery = true)
     void addMaintain(String requestId);
 }

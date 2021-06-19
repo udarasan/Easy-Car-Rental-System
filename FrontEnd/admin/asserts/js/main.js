@@ -1,4 +1,5 @@
 mainFunction();
+getAllCars();
 function mainFunction() {
     $('.dashboard-section').css({display: "block"});
     $('.manage-car-section').css({display: "none"});
@@ -95,10 +96,12 @@ $('#addCar').click(function () {
     let freeMileagePerMonth=$('#freeMileagePerMonth').val();
     let pricePerKm=$('#pricePerKm').val();
     let kmMeterValue=$('#kmMeterValue').val();
+    let lossDamageWaiver=$('#lossDamageWaiver').val();
     let lastReturnDate=today;
     let isAvailable="YES";
     let isDamaged="NO";
     let underMaintenance="NO";
+
 
 
     let formData=new FormData();
@@ -141,7 +144,8 @@ $('#addCar').click(function () {
                             'lastReturnDate': lastReturnDate,
                             'isAvailable': isAvailable,
                             'isDamaged': isDamaged,
-                            'underMaintenance': underMaintenance
+                            'underMaintenance': underMaintenance,
+                            'lossDamageWaiver': lossDamageWaiver
                         }),
                         success:function (rt) {
                             if (rt.code==200){
@@ -184,7 +188,7 @@ function getAllUsers() {
 
     })
 }
-getAllCars();
+
 function getAllCars() {
     $.ajax({
         method:"GET",
@@ -213,8 +217,9 @@ function getAllCars() {
                 let isDamaged=car.isDamaged;
                 let underMaintenance=car.underMaintenance;
                 let frontImage="<img style='width: 100px; height: 100px' src='asserts/img/" + id + "'>"
+                let lossDamageWaiver=car.lossDamageWaiver;
 
-                var row = `<tr><td>${registrationNo}</td><td>${brand}</td><td>${type}</td><td>${frontImage}</td><td>${numberOfPassengers}</td><td>${transmissionType}</td><td>${fuelType}</td><td>${color}</td><td>${dailyRate}</td><td>${monthlyRate}</td><td>${freeMileagePerDay}</td><td>${freeMileagePerMonth}</td><td>${pricePerKm}</td><td>${kmMeterValue}</td><td>${lastReturnDate}</td><td>${isAvailable}</td><td>${isDamaged}</td><td>${underMaintenance}</td></tr>`;
+                var row = `<tr><td>${registrationNo}</td><td>${brand}</td><td>${type}</td><td>${frontImage}</td><td>${numberOfPassengers}</td><td>${transmissionType}</td><td>${fuelType}</td><td>${color}</td><td>${dailyRate}</td><td>${monthlyRate}</td><td>${freeMileagePerDay}</td><td>${freeMileagePerMonth}</td><td>${pricePerKm}</td><td>${kmMeterValue}</td><td>${lastReturnDate}</td><td>${isAvailable}</td><td>${isDamaged}</td><td>${underMaintenance}</td><td>${lossDamageWaiver}</td></tr>`;
                 $('#carTable>tbody').append(row);
             }
         }
@@ -335,3 +340,48 @@ $('#addMaintain').click(function () {
         }
     })
 })
+/*new*/
+$(document).ready(function () {
+    $(document).on('click','#carTable tbody tr',function () {
+        var col0=$(this).find('td:eq(0)').text();
+        var col1=$(this).find('td:eq(1)').text();
+        var col2=$(this).find('td:eq(2)').text();
+        var col3=$(this).find('td:eq(3)').text();
+        var col4=$(this).find('td:eq(4)').text();
+        var col5=$(this).find('td:eq(5)').text();
+        var col6=$(this).find('td:eq(6)').text();
+        var col7=$(this).find('td:eq(7)').text();
+        var col8=$(this).find('td:eq(8)').text();
+        var col9=$(this).find('td:eq(9)').text();
+        var col10=$(this).find('td:eq(10)').text();
+        var col11=$(this).find('td:eq(11)').text();
+        var col12=$(this).find('td:eq(12)').text();
+        var col13=$(this).find('td:eq(13)').text();
+        var col14=$(this).find('td:eq(14)').text();
+        var col15=$(this).find('td:eq(15)').text();
+
+        $('#registrationNo').val(col0);
+        $('#brand').val(col1);
+        $('#type').val(col2);
+        $('#frontImage').val(col3);
+        $('#numberOfPassengers').val(col4);
+        $('#transmissionType').val(col5);
+        $('#fuelType').val(col6);
+        $('#color').val(col7);
+        $('#dailyRate').val(col8);
+        $('#monthlyRate').val(col9);
+        $('#freeMileagePerDay').val(col10);
+        $('#freeMileagePerMonth').val(col11);
+        $('#pricePerKm').val(col12);
+        $('#kmMeterValue').val(col13);
+        $('#lastReturnDate').val(col14);
+        $('#lossDamageWaiver').val(col15);
+
+
+})
+    console.log("curRowId");
+
+})
+
+
+
