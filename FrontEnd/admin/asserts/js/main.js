@@ -466,7 +466,10 @@ $('#calculatePayment').click(function () {
 function generatePayment(dailyRate,monthlyRate,freeMileagePerDay,freeMileagePerMonth,pricePerKm,kmMeterValue,lossDamageWaiver) {
 
     let currentMeterValue=$('#MeeterValue').val();
-    let nowKmValue=kmMeterValue-currentMeterValue;
+    let nowKmValue=currentMeterValue-kmMeterValue;
+    console.log(currentMeterValue)
+    console.log(kmMeterValue)
+    console.log(nowKmValue)
 
     if (noOfDates<=29){
         console.log("-30")
@@ -474,26 +477,30 @@ function generatePayment(dailyRate,monthlyRate,freeMileagePerDay,freeMileagePerM
             console.log(-100)
             let payablePrice=(noOfDates*dailyRate);
             console.log(payablePrice);
-
+            $('#payment').val(payablePrice);
         }else {
             console.log(+100)
             let exKM=nowKmValue-100;
             let payablePrice=(exKM*pricePerKm)+(dailyRate*noOfDates);
             console.log(payablePrice);
+            $('#payment').val(payablePrice);
         }
     }else {
         console.log("30+")
-        let noOfMonth=noOfDates/30;
+        let noOfMonth=Math.round(noOfDates/30);
+        console.log(noOfMonth);
         let noOFExtraDates=noOfDates%30;
         if (nowKmValue<=2400){
             console.log(-2400)
             let payablePrice=(noOfMonth*monthlyRate)+(noOFExtraDates*dailyRate);
             console.log(payablePrice);
+            $('#payment').val(payablePrice);
         }else {
             console.log(+2400)
             let exKM=nowKmValue-2400;
             let payablePrice=(noOfMonth*monthlyRate)+(noOFExtraDates*dailyRate)+(exKM*pricePerKm);
             console.log(payablePrice);
+            $('#payment').val(payablePrice);
         }
     }
 }

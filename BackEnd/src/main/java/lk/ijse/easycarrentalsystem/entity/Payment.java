@@ -4,8 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,5 +16,10 @@ public class Payment {
     private double wavePayment;
     private double rentalPayment;
     private String date;
+
+    @OneToOne(targetEntity = RentalRequest.class,cascade = CascadeType.ALL)
+    private RentalRequest rentalRequest;
+
+
 
 }

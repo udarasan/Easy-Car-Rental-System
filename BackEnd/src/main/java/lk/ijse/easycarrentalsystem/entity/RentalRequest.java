@@ -38,4 +38,11 @@ public class RentalRequest {
     @ManyToOne(targetEntity = Driver.class,cascade = CascadeType.ALL)
     @JoinColumn(name = "did",referencedColumnName = "did")
     private Driver driver;*/
+
+    /*@OneToOne(targetEntity = Payment.class,cascade = CascadeType.ALL)
+    private Payment payment;*/
+
+    @OneToOne(targetEntity = Payment.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "requestId",referencedColumnName ="requestId" )
+    private Payment payment;
 }
