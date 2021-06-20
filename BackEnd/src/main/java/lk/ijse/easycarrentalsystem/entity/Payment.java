@@ -16,10 +16,7 @@ public class Payment {
     private double wavePayment;
     private double rentalPayment;
     private String date;
-
-    @OneToOne(targetEntity = RentalRequest.class,cascade = CascadeType.ALL)
-    private RentalRequest rentalRequest;
-
+    private String requestId;
 
 
 }

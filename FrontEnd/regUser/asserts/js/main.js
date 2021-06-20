@@ -71,7 +71,7 @@ function loadRegUserDetails(NIC) {
     $('.login-section').css({display: "none"});
     $('.car-details-section').css({display: "block"});
     $('.renal-req-section').css({display: "block"});
-$('#userNIC').text(NIC);
+    $('#userNIC').text(NIC);
     console.log(NIC);
 
 }

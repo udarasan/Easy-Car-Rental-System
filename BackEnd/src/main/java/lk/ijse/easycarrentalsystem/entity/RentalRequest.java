@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @AllArgsConstructor
@@ -24,25 +25,12 @@ public class RentalRequest {
     private String returnVenue;
     private String requestStatus;
     private String description;
-    //new1
     private String bankSlip;
 
-    /*@ManyToOne(targetEntity = User.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "nic",referencedColumnName = "nic")
-    private User user;
 
-    @ManyToOne(targetEntity = Car.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "registrationNo",referencedColumnName = "registrationNo")
-    private Car car;
+    @OneToMany(targetEntity = Payment.class,cascade = CascadeType.ALL)
+    @JoinColumn(name = "requestId",referencedColumnName = "requestId")
+    private List<Payment> payments;
 
-    @ManyToOne(targetEntity = Driver.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "did",referencedColumnName = "did")
-    private Driver driver;*/
 
-    /*@OneToOne(targetEntity = Payment.class,cascade = CascadeType.ALL)
-    private Payment payment;*/
-
-    @OneToOne(targetEntity = Payment.class,cascade = CascadeType.ALL)
-    @JoinColumn(name = "requestId",referencedColumnName ="requestId" )
-    private Payment payment;
 }

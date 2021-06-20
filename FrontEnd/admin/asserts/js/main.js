@@ -429,7 +429,7 @@ $(document).ready(function () {
 $('#calculatePayment').click(function () {
     let registerNO=$('#regNo').val();
     let noOfDates=$('#NoOFDates').val();
-    /*let damageAmount=$('#damageAmount').val();*/
+
 
     $.ajax({
         method:"GET",
@@ -456,12 +456,15 @@ $('#calculatePayment').click(function () {
                 let underMaintenance = car.underMaintenance;
                 let frontImage = car.frontImage;
                 let lossDamageWaiver = car.lossDamageWaiver;
+                $('#lossDamageWaver').val(lossDamageWaiver);
                 generatePayment(dailyRate,monthlyRate,freeMileagePerDay,freeMileagePerMonth,pricePerKm,kmMeterValue,lossDamageWaiver);
+
             }
 
         }
 
     })
+
 
 function generatePayment(dailyRate,monthlyRate,freeMileagePerDay,freeMileagePerMonth,pricePerKm,kmMeterValue,lossDamageWaiver) {
 
@@ -508,5 +511,32 @@ function generatePayment(dailyRate,monthlyRate,freeMileagePerDay,freeMileagePerM
 
 })
 
+$('#pay').click(function () {
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = mm + '/' + dd + '/' + yyyy;
+    let pid=Math.floor((Math.random() * 1000) + 1);
+    let damageAmount=$('#lossDamageWaver').val();
+    let rentalPayment=$('#payment').val();
+    let date=today;
+    let reqID=$('#reqId').val();
+    console.log(reqID);
+
+    $.ajax({
+        method: "POST",
+        contentType: "application/json",
+        url: "http://localhost:8080/BackEnd_war_exploded/api/v1/payment/addPayment",
+        data: JSON.stringify({
+            'pid': pid,
+            'wavePayment': damageAmount,
+            'rentalPayment': rentalPayment,
+            'date': date,
+            'requestId':reqID
+        })
+    })
+})
 
 

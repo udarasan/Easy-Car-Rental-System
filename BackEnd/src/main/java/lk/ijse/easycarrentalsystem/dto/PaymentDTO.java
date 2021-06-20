@@ -12,5 +12,6 @@ public class PaymentDTO {
     private double wavePayment;
     private double rentalPayment;
     private String date;
+    private String requestId;
 
 }

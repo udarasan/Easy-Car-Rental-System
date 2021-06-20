@@ -32,7 +32,6 @@ public class Car {
     private String isAvailable;
     private String isDamaged;
     private String underMaintenance;
-    //new
     private double lossDamageWaiver;
 
     @OneToMany(targetEntity = RentalRequest.class,cascade = CascadeType.ALL)
