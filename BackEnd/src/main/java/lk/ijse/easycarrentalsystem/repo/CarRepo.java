@@ -5,7 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface CarRepo extends JpaRepository<Car,String> {
@@ -18,4 +17,8 @@ public interface CarRepo extends JpaRepository<Car,String> {
 
     @Query(value = "select * from Car where registrationNo=?1",nativeQuery = true)
     List<Car> getASpecificCar(String registrationNo);
+
+    /*@Modifying
+    @Query(value = "update Car set underMaintenance ='YES',isAvailable ='NO' where registrationNo=?1",nativeQuery = true)
+    void addMaintain(String requestId,String registerNO);*/
 }

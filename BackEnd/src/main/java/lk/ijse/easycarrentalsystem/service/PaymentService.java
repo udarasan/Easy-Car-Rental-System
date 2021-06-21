@@ -9,4 +9,5 @@ import java.util.ArrayList;
 public interface PaymentService {
 
     void addPayment(PaymentDTO dto);
+    void setCarIsAvailableYESandChangeMeterValue(String requestId,String kmValue);
 }

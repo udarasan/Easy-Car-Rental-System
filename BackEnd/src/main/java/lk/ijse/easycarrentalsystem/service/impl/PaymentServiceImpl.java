@@ -26,5 +26,10 @@ public class PaymentServiceImpl implements PaymentService {
 
         paymentRepo.save(mapper.map(dto,Payment.class));
     }
+
+    @Override
+    public void setCarIsAvailableYESandChangeMeterValue(String requestId, String kmValue) {
+        paymentRepo.setCarIsAvailableYESandChangeMeterValue(requestId,kmValue);
+    }
 }
 
