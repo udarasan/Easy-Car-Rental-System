@@ -21,4 +21,16 @@ public interface CarRepo extends JpaRepository<Car,String> {
     /*@Modifying
     @Query(value = "update Car set underMaintenance ='YES',isAvailable ='NO' where registrationNo=?1",nativeQuery = true)
     void addMaintain(String requestId,String registerNO);*/
+    //dashborad
+    @Query(value = "select count(registrationNo) from Car where isAvailable='Yes'", nativeQuery = true)
+    int getAvailableCarCount();
+
+    @Query(value = "select count(registrationNo) from RentalRequest where  requestStatus='Active'", nativeQuery = true)
+    int getReservedCarCount();
+
+    @Query(value = "select count(registrationNo) from Car where isDamaged='Yes'", nativeQuery = true)
+    int getDamagedCarCount();
+
+    @Query(value = "select count(registrationNo) from Car where underMaintenance='Yes'", nativeQuery = true)
+    int getUnderMaintenanceCarCount();
 }

@@ -14,6 +14,12 @@ public interface DriverRepo extends JpaRepository<Driver,String> {
     List<String>getAvailableDrivers();
     @Query(value = "select * from Driver where isAvailable='YES'",nativeQuery = true)
     List<Driver>getAllAvailableDriversDetails();
+    //Dashboard
+    @Query(value = "select count(did) from Driver where isAvailable='Yes'", nativeQuery = true)
+    int getAvailableDriverCount();
+
+    @Query(value = "select count(did) from Driver where isAvailable='No'", nativeQuery = true)
+    int getOccupiedDriverCount();
 
 
 

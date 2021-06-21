@@ -21,4 +21,12 @@ public interface RentalRequestRepo extends JpaRepository<RentalRequest,String> {
     @Query(value = "update RentalRequest set did =?1 where requestId =?2",nativeQuery = true)
     void changeDriver(String did,String requestId);
 
+    //dashboard
+    @Query(value = "select count(requestId) from RentalRequest where requestStatus='Pending' OR requestStatus='Active'", nativeQuery = true)
+    int getTotalBookings();
+
+    @Query(value = "select count(requestId) from RentalRequest where requestStatus='Active'", nativeQuery = true)
+    int getActiveBookings();
+
+
 }

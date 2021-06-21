@@ -14,4 +14,5 @@ public class UserDTO {
     private String idPhoto;
     private String address;
     private String contact;
+    private String status;
 }

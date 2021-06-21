@@ -91,5 +91,15 @@ public class RentalRequestServiceImpl implements RentalRequestService {
         rentalRequestRepo.changeDriver(did,requestId);
     }
 
+    @Override
+    public int getActiveBookings() {
+        return rentalRequestRepo.getActiveBookings();
+    }
+
+    @Override
+    public int getTotalBookings() {
+        return rentalRequestRepo.getTotalBookings();
+    }
+
 
 }

@@ -69,4 +69,19 @@ public class UserServiceImpl implements UserService {
 
         }
     }
+
+    @Override
+    public void userStatusUpdate(String userStatus, String nic) {
+        userRepo.userStatusUpdate(userStatus,nic);
+    }
+
+    @Override
+    public String searchUserForLogin(String nic) {
+        return userRepo.searchUserForLogin(nic);
+    }
+
+    @Override
+    public int getRegisteredUsers() {
+        return userRepo.getRegisteredUsers();
+    }
 }

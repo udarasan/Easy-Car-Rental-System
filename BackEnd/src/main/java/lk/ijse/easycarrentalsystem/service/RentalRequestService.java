@@ -24,5 +24,6 @@ public interface RentalRequestService {
 
     void changeDriver(String driverName,String requestId);
 
-
+    int getActiveBookings();
+    int getTotalBookings();
 }

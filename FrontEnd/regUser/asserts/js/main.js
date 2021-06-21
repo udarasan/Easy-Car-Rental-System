@@ -50,12 +50,18 @@ $('#login').click(function () {
         async: true,
         success:function (resp) {
             console.log(resp.data);
-            if (resp.data.password==password){
-                console.log("ela")
-                loadRegUserDetails(NIC);
-                showTopButtons();
-                requestStatusTableDataLoad();
+            if (resp.data!=null){
+                if(resp.data==password) {
+                    console.log("ela")
+                    loadRegUserDetails(NIC);
+                    showTopButtons();
+                    requestStatusTableDataLoad();
 
+                }else {
+                    confirm("Wrong Password Or User Name");
+                }
+            }else {
+                confirm("Your Request Pending!");
             }
         }
 
@@ -383,7 +389,7 @@ function registerUser() {
     let filename = $('#imgNIC')[0].files[0].name;
     let address = $('#address').val();
     let contact = $('#contact').val();
-
+    let status = "Accept";
     let formData = new FormData();
 
     for (let file of document.getElementById('imgNIC').files) {
@@ -411,7 +417,8 @@ function registerUser() {
                         "password": password,
                         "idPhoto": resp.data,
                         "address": address,
-                        "contact": contact
+                        "contact": contact,
+                        "status":status
                     })
 
                 });

@@ -66,8 +66,8 @@ public class UserController {
 
     @GetMapping(path = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity searchUser(@PathVariable String id) {
-        UserDTO userDTO = service.searchUser(id);
-        return new ResponseEntity(new StandardResponse("200", "Done", userDTO), HttpStatus.OK);
+        String password = service.searchUserForLogin(id);
+        return new ResponseEntity(new StandardResponse("200", "Done", password), HttpStatus.OK);
     }
 
 
@@ -84,5 +84,10 @@ public class UserController {
         }
         service.updateUser(dto);
         return new ResponseEntity(new StandardResponse("200", "Done", dto), HttpStatus.OK);
+    }
+    @PutMapping(path = "acceptUser/{userStatus}/{nic}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity acceptRentalRequest(@PathVariable String userStatus,@PathVariable String nic) {
+        service.userStatusUpdate(userStatus,nic);
+        return new ResponseEntity(new StandardResponse("200", "Done", "done"), HttpStatus.OK);
     }
 }

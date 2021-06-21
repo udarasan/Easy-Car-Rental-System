@@ -16,4 +16,10 @@ public interface UserService {
     ArrayList<UserDTO> getAllUsers();
 
     void updateUser(UserDTO dto);
+
+    void userStatusUpdate(String userStatus,String nic);
+
+    String searchUserForLogin(String nic);
+
+    int getRegisteredUsers();
 }

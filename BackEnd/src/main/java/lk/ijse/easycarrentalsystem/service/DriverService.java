@@ -11,5 +11,6 @@ public interface DriverService {
 
     ArrayList<DriverDTO> getAllAvailableDriversDetails();
 
-
+    int getAvailableDriverCount();
+    int getOccupiedDriverCount();
 }

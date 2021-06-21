@@ -1,6 +1,6 @@
 mainFunction();
 getAllCars();
-
+dashboardLoad();
 function mainFunction() {
     $('.dashboard-section').css({display: "block"});
     $('.manage-car-section').css({display: "none"});
@@ -180,8 +180,9 @@ function getAllUsers() {
                 let address = user.address;
                 let contact = user.contact;
                 let idPhoto = "<img style='width: 100px; height: 100px' src='asserts/img/" + id + "'>"
+                let status=user.status;
 
-                var row = `<tr><td>${nic}</td><td>${email}</td><td>${password}</td><td>${idPhoto}</td><td>${address}</td><td>${contact}</td></tr>`;
+                var row = `<tr><td>${nic}</td><td>${email}</td><td>${password}</td><td>${idPhoto}</td><td>${address}</td><td>${contact}</td><td>${status}</td></tr>`;
                 $('#customerTable>tbody').append(row);
             }
         }
@@ -583,6 +584,58 @@ function setCarIsAvailableYESandChangeMeterValue() {
                 console.log("uuu")
             }
         }
+    })
+
+
+}
+
+
+$('#userAccept').click(function () {
+    let nic=$('#nic').val();
+    $.ajax({
+        method: "PUT",
+        url: "http://localhost:8080/BackEnd_war_exploded/api/v1/user/acceptUser/" + "Accept" + "/" + nic,
+
+    })
+})
+$('#userDenied').click(function () {
+    let nic=$('#nic').val();
+    $.ajax({
+        method: "PUT",
+        url: "http://localhost:8080/BackEnd_war_exploded/api/v1/user/acceptUser/" + "Denied" + "/" + nic,
+
+    })
+})
+$('#UserPending').click(function () {
+    let nic=$('#nic').val();
+    $.ajax({
+        method: "PUT",
+        url: "http://localhost:8080/BackEnd_war_exploded/api/v1/user/acceptUser/" + "Pending" + "/" + nic,
+
+    })
+})
+
+//dashboard Section
+function dashboardLoad() {
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/BackEnd_war_exploded/api/v1/Dashboard/dashboardDetails",
+        success: function (resp) {
+            console.log(resp);
+                $('#registeredUsers').text(resp.data.registeredUsers);
+                $('#totalBookings').text(resp.data.totalBookings);
+                $('#activeBookings').text(resp.data.activeBookings);
+                $('#availableCars').text(resp.data.availableCars);
+                $('#reservedCars').text(resp.data.reservedCars);
+                $('#carsNeedMaintenance').text(resp.data.carsNeedMaintenance);
+                $('#carsUnderMaintenance').text(resp.data.carsUnderMaintenance);
+                $('#availableDrivers').text(resp.data.availableDrivers);
+                $('#occupiedDrivers').text(resp.data.occupiedDrivers);
+
+
+
+        }
+
     })
 
 

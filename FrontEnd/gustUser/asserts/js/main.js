@@ -29,6 +29,8 @@ function registerUser() {
     let filename = $('#imgNIC')[0].files[0].name;
     let address = $('#address').val();
     let contact = $('#contact').val();
+    let status = "Pending"
+
 
     let formData = new FormData();
 
@@ -57,7 +59,8 @@ function registerUser() {
                         "password": password,
                         "idPhoto": resp.data,
                         "address": address,
-                        "contact": contact
+                        "contact": contact,
+                        "status":status
                     })
 
                 });

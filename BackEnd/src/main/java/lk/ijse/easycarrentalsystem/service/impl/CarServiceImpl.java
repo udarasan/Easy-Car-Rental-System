@@ -77,4 +77,24 @@ public class CarServiceImpl implements CarService {
         return mapper.map(getASpecificCar,new TypeToken<ArrayList<CarDTO>>(){
         }.getType());
     }
+
+    @Override
+    public int getAvailableCarCount() {
+        return carRepo.getAvailableCarCount();
+    }
+
+    @Override
+    public int getReservedCarCount() {
+        return carRepo.getReservedCarCount();
+    }
+
+    @Override
+    public int getDamagedCarCount() {
+        return carRepo.getDamagedCarCount();
+    }
+
+    @Override
+    public int getUnderMaintenanceCarCount() {
+        return carRepo.getUnderMaintenanceCarCount();
+    }
 }

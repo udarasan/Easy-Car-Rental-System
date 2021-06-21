@@ -23,4 +23,10 @@ public interface CarService {
     void addMaintain(String requestId);
 
     ArrayList<CarDTO>getASpecificCar(String registrationNo);
+
+
+    int getAvailableCarCount();
+    int getReservedCarCount();
+    int getDamagedCarCount();
+    int getUnderMaintenanceCarCount();
 }
