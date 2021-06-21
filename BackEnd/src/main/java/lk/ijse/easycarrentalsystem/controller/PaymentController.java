@@ -26,6 +26,7 @@ public class PaymentController {
     @PutMapping(path = "/updateOtherTable/{requestId}/{kmValue}")
     public ResponseEntity setCarIsAvailableYESandChangeMeterValue(@PathVariable String requestId, @PathVariable String kmValue){
         paymentService.setCarIsAvailableYESandChangeMeterValue(requestId, kmValue);
+
         return new ResponseEntity(new StandardResponse("201", "Done", "DONE"), HttpStatus.ACCEPTED);
     }
 }

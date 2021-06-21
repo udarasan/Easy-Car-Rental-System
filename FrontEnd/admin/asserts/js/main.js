@@ -544,6 +544,9 @@ $('#pay').click(function () {
     let date = today;
     let reqID = $('#reqId').val();
     console.log(reqID);
+    console.log(pid);
+    console.log(damageAmount);
+    console.log(rentalPayment);
 
     $.ajax({
         method: "POST",
@@ -557,7 +560,8 @@ $('#pay').click(function () {
             'requestId': reqID
         }),
         success: function (resp) {
-            if (resp.code == 200) {
+            if (resp.code == 201) {
+                console.log(resp.data)
                 setCarIsAvailableYESandChangeMeterValue();
             }
 
@@ -567,13 +571,15 @@ $('#pay').click(function () {
 
 function setCarIsAvailableYESandChangeMeterValue() {
     let meterValue = $('#MeeterValue').val();
-    let registerNO = $('#regNo').val();
+    let reqID = $('#reqId').val();
 
+    console.log(meterValue)
+    console.log(reqID)
     $.ajax({
         method: "PUT",
-        url: "http://localhost:8080/BackEnd_war_exploded/api/v1/payment/updateOtherTable/"+registerNO+"/"+meterValue,
+        url: "http://localhost:8080/BackEnd_war_exploded/api/v1/payment/updateOtherTable/"+reqID+"/"+meterValue,
         success: function (resp) {
-            if (resp.code == 200) {
+            if (resp.code == 201) {
                 console.log("uuu")
             }
         }
