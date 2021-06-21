@@ -470,6 +470,7 @@ function generatePayment(dailyRate,monthlyRate,freeMileagePerDay,freeMileagePerM
 
     let currentMeterValue=$('#MeeterValue').val();
     let nowKmValue=currentMeterValue-kmMeterValue;
+    let did=$('#did').val();
     console.log(currentMeterValue)
     console.log(kmMeterValue)
     console.log(nowKmValue)
@@ -480,13 +481,23 @@ function generatePayment(dailyRate,monthlyRate,freeMileagePerDay,freeMileagePerM
             console.log(-100)
             let payablePrice=(noOfDates*dailyRate);
             console.log(payablePrice);
-            $('#payment').val(payablePrice);
+            if (did!="No One"){
+                let withDriverPay=payablePrice+(1000*noOfDates);
+                $('#payment').val(withDriverPay);
+            }else {
+                $('#payment').val(payablePrice);
+            }
         }else {
             console.log(+100)
             let exKM=nowKmValue-100;
             let payablePrice=(exKM*pricePerKm)+(dailyRate*noOfDates);
             console.log(payablePrice);
-            $('#payment').val(payablePrice);
+            if (did!="No One"){
+                let withDriverPay=payablePrice+(1000*noOfDates);
+                $('#payment').val(withDriverPay);
+            }else {
+                $('#payment').val(payablePrice);
+            }
         }
     }else {
         console.log("30+")
@@ -497,13 +508,23 @@ function generatePayment(dailyRate,monthlyRate,freeMileagePerDay,freeMileagePerM
             console.log(-2400)
             let payablePrice=(noOfMonth*monthlyRate)+(noOFExtraDates*dailyRate);
             console.log(payablePrice);
-            $('#payment').val(payablePrice);
+            if (did!="No One"){
+                let withDriverPay=payablePrice+(1000*noOfDates);
+                $('#payment').val(withDriverPay);
+            }else {
+                $('#payment').val(payablePrice);
+            }
         }else {
             console.log(+2400)
             let exKM=nowKmValue-2400;
             let payablePrice=(noOfMonth*monthlyRate)+(noOFExtraDates*dailyRate)+(exKM*pricePerKm);
             console.log(payablePrice);
-            $('#payment').val(payablePrice);
+            if (did!="No One"){
+                let withDriverPay=payablePrice+(1000*noOfDates);
+                $('#payment').val(withDriverPay);
+            }else {
+                $('#payment').val(payablePrice);
+            }
         }
     }
 }

@@ -20,8 +20,10 @@ public class PaymentServiceImpl implements PaymentService {
     private ModelMapper mapper;
 
 
+
     @Override
     public void addPayment(PaymentDTO dto) {
+
         paymentRepo.save(mapper.map(dto,Payment.class));
     }
 }
