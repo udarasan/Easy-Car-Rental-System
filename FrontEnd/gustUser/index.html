@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Gust-Easy-Car-Rental-System</title>
     <link href="asserts/css/bootstrap.min.css" rel="stylesheet">
+    <link href="asserts/css/style.css" rel="stylesheet">
 </head>
 <body>
 <!---------------------------------------------------header section------------------------------------------------>
@@ -12,38 +13,45 @@
         <div class="container-fluid">
             <a class="navbar-brand" href="#" id="gustHome">Easy Car Rental System(Guest)</a>
             <div class="d-flex" id="navbarSupportedContent">
-                <button class="btn btn-outline-success" type="submit" id="registerButton">Register</button>
-                <button class="btn btn-outline-success" type="submit" id="loginButton">LogIn</button>
+                <button class="btn btn-outline-primary m-1" type="submit" id="registerButton">Register</button>
+                <button class="btn btn-outline-primary m-1" type="submit" id="loginButton">LogIn</button>
             </div>
         </div>
     </nav>
 </header>
 
-<main>
+<main class="ddd">
+    <div class="homeBanner">
+        <div>
+            <h1 id="title">Easy Car Rental (PVT) Ltd.</h1>
+            <button class="btn" type="button" id="rentCar">Rent A Car</button>
+        </div>
+
+    </div>
     <!--------------------------------------------------car-details-section-table-bordered-------------------------------------------------->
-    <div class="car-details-section" style="overflow-y: scroll; overflow-x: scroll">
-        <table class="table table-hover table-bordered" id="gustCarTable" >
-            <thead>
+    <div class="car-details-section container mt-4" style="overflow-y: scroll; overflow-x: scroll ">
+        <table class="table table-hover table-border " id="gustCarTable" >
+            <thead class="table-dark">
             <tr>
-                <th scope="col">registrationNo</th>
-                <th scope="col">brand</th>
-                <th scope="col">type</th>
-                <th scope="col">frontImage</th>
-                <th scope="col">numberOfPassengers</th>
-                <th scope="col">transmissionType</th>
-                <th scope="col">fuelType</th>
-                <th scope="col">color</th>
-                <th scope="col">dailyRate</th>
-                <th scope="col">monthlyRate</th>
-                <th scope="col">freeMileagePerDay</th>
-                <th scope="col">freeMileagePerMonth</th>
-                <th scope="col">pricePerKm</th>
-                <th scope="col">kmMeterValue</th>
-                <th scope="col">lastReturnDate</th>
-                <th scope="col">isAvailable</th>
-                <th scope="col">isDamaged</th>
-                <th scope="col">underMaintenance</th>
-                <th scope="col">lossDamageWaiver</th>
+                <th scope="col">RegistrationNo</th>
+                <th scope="col">VehicleBrand</th>
+                <th scope="col">VehicleType</th>
+                <th scope="col">VehicleImage</th>
+                <th scope="col">NoOfPassengers</th>
+                <th scope="col">TransmissionType</th>
+                <th scope="col">Fuel</th>
+                <th scope="col">Colour</th>
+                <th scope="col">DailyRate</th>
+                <th scope="col">MonthlyRate</th>
+                <th scope="col">FreeMil.PerDay</th>
+                <th scope="col">FreeMil.PerMonth</th>
+                <th scope="col">PricePerKM</th>
+                <th scope="col">KMValue</th>
+                <th scope="col">LastReturnDate</th>
+                <th scope="col">Availability</th>
+                <th scope="col">IsDamaged</th>
+                <th scope="col">MaintainMode</th>
+                <th scope="col">WaverPayment</th>
             </tr>
             </thead>
             <tbody>
@@ -51,13 +59,13 @@
         </table>
     </div>
     <!--------------------------------------------------Registration User Interface-------------------------------------------------->
-    <div class="container registration-section mt-5 mb-5">
+    <div class="registration-section p-5">
         <div class="container">
             <div class="row">
                 <div class="col">
 
                 </div>
-                <div class="col-6">
+                <div class="col-6 mt-5">
                     <form>
                         <div class="row g-3">
                             <div class="col mb-3">
@@ -87,7 +95,7 @@
                                 <input type="text" class="form-control" placeholder="Contact" aria-label="Contact" id="contact">
                             </div>
                         </div>
-                        <button type="button" class="btn btn-primary" id="saveBtn">Submit</button>
+                        <button type="button" class="btn btn-primary px-4" id="saveBtn">Register Now</button>
                     </form>
 
                 </div>
@@ -101,6 +109,7 @@
     </div>
 
 </main>
+
 <script src="asserts/js/bootstrap.min.js"></script>
 <script src="asserts/js/jquery-3.4.1.min.js"></script>
 <script src="asserts/js/main.js"></script>

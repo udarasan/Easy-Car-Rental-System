@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Reg-Easy-Car-Rental-System</title>
     <link href="asserts/css/bootstrap.min.css" rel="stylesheet">
+    <link href="asserts/css/style.css" rel="stylesheet">
 </head>
 <body>
     <!---------------------------------------------------header section------------------------------------------------>
@@ -15,17 +16,18 @@
                 )</a>
 
             <div class="d-flex" id="navbarSupportedContent">
-                <button class="btn btn-outline-success" type="submit" id="myAccountButton">My Account</button>
-                <button class="btn btn-outline-success" type="submit" id="rentStatusButton">Rent Status</button>
-                <button class="btn btn-outline-success" type="submit" id="logOutButton">LogOut</button>
+                <button class="btn btn-outline-primary" type="submit" id="myAccountButton">My Account</button>
+                <button class="btn btn-outline-primary" type="submit" id="rentStatusButton">Rent Status</button>
+                <button class="btn btn-outline-primary" type="submit" id="logOutButton">LogOut</button>
 
             </div>
         </div>
     </nav>
 </header>
-<main>
+<main id="main">
+
     <!--------------------------------------------------Login-Section-------------------------------------------------->
-    <div class="container login-section">
+    <div class="login-section">
         <div class="row mt-5 mb-5">
             <div class="col">
 
@@ -41,7 +43,11 @@
                             <label for="loginPassword" class="form-label">Password</label>
                             <input type="text" class="form-control" id="loginPassword">
                         </div>
-                        <button type="button" class="btn btn-primary" id="login">Login</button>
+                        <div id="loginButtonSection">
+                            <button type="button" class="btn btn-light" id="createAccount">Create Account</button>
+                            <button type="button" class="btn btn-primary" id="login">Login</button>
+                        </div>
+
                     </form>
                 </div>
             </div>
@@ -99,7 +105,7 @@
                     <div class="col mt-5">
                         <!-- new1 <label class="input-group-text" for="inputGroupFile01">Upload</label>-->
                         <input type="file" class="form-control" id="imgBankSlip">
-                        <button type="button" class="btn btn-primary mt-5 px-5 py-3" id="sendRequest">Send Request</button>
+                        <button type="button" class="btn btn-primary mt-3 px-5 py-3" id="sendRequest">Send Request</button>
                     </div>
                 </div>
             </div>
@@ -112,7 +118,7 @@
     <!--------------------------------------------------car-details-section-table-bordered----------------------------->
     <div class="car-details-section container" style="overflow-y: scroll; overflow-x: scroll">
         <table class="table table-hover table-bordered " id="regCarTable">
-            <thead>
+            <thead class="table-dark">
             <tr>
                 <th scope="col">registrationNo</th>
                 <th scope="col">brand</th>
@@ -141,13 +147,13 @@
         </table>
     </div>
     <!--------------------------------------------------MyAccount User Interface--------------------------------------->
-    <div class="container myAccount-section mt-5 mb-5">
+    <div class="myAccount-section mb-5">
             <div class="container">
                 <div class="row">
                     <div class="col">
 
                     </div>
-                    <div class="col-6">
+                    <div class="col-6 mt-5">
                         <form>
                             <div class="row g-3">
                                 <div class="col mb-3">

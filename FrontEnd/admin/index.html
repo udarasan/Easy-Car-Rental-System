@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <title>Admin-Easy-Car-Rental-System</title>
     <link href="asserts/css/bootstrap.min.css" rel="stylesheet">
+    <link href="asserts/css/style.css" rel="stylesheet">
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
         <div class="container-fluid">
             <a class="navbar-brand" href="#" id="RegisteredUserHome">Easy Car Rental System(Registerd)</a>
             <div class="d-flex" id="navbarSupportedContent">
@@ -22,73 +23,76 @@
     <div>
         <div class="row">
             <!-------------------------------------------------------Side-Bar-Menu------------------------------------------------------->
-            <div class="col-2 bg-danger">
+            <div class="col-2 bg-dark sidebar">
+                <div>
+                    <h4 id="title">Admin Area</h4>
+                </div>
                 <div class="d-grid gap-1 mt-5 mb-5">
-                    <button class="btn btn-primary" type="button" id="dashboardButton">Dashboard</button>
-                    <button class="btn btn-primary" type="button" id="manageCarButton">Manage Cars</button>
-                    <button class="btn btn-primary" type="button" id="viewCustomersButton">View Customers</button>
-                    <button class="btn btn-primary" type="button" id="calculateIncomeButton">Calculate Income</button>
-                    <button class="btn btn-primary" type="button" id="viewRentalReqButton">View Rental Request</button>
+
+                    <button class="btn btn-primary text-start" type="button" id="dashboardButton">Dashboard</button>
+                    <button class="btn btn-primary text-start" type="button" id="manageCarButton">Manage Cars</button>
+                    <button class="btn btn-primary text-start" type="button" id="viewCustomersButton">View Customers</button>
+                    <button class="btn btn-primary text-start" type="button" id="calculateIncomeButton">Calculate Income</button>
+                    <button class="btn btn-primary text-start" type="button" id="viewRentalReqButton">View Rental Request</button>
                 </div>
 
             </div>
-            <div class="col-10 ">
+            <div class="col-10 canvas ">
                 <!-------------------------------------------------------dashboard section--------------------------------------------------->
-                <div class="container dashboard-section">
-                    <div class="row bg-warning">
-                        <div class="col">
-                            <nav class="navbar  navbar-light bg-danger p-4">
+                <div class="dashboard-section ">
+                    <div class="row ">
+                        <div class="col bg-danger bar">
+                            <nav class="navbar  navbar-light p-4 ">
                                 <div>
-                                    <!--<a class="navbar-brand" href="#" id="w">Menu1</a>
-                                    <a class="navbar-brand" href="#" id="e">Menu2</a>
-                                    <a class="navbar-brand" href="#" id="ee">Menu3</a>-->
-                                </div>
+                                <a class="navbar-brand text-light" href="#" >DashBoard</a>
+
+                            </div>
                             </nav>
                         </div>
                     </div>
-                    <div class="row bg-warning">
+                    <div class="row  canvas">
                         <div class="container">
                             <div class="row m-5">
-                                <div class="col">
-                                    <p>registeredUsers</p>
+                                <div class="col card">
+                                    <p>Registered Users</p>
                                     <h1 id="registeredUsers"></h1>
                                 </div>
-                                <div class="col">
-                                    <p>totalBookings</p>
+                                <div class="col card">
+                                    <p>Total Bookings</p>
                                     <h1 id="totalBookings"></h1>
                                 </div>
-                                <div class="col">
-                                    <p>activeBookings</p>
+                                <div class="col card">
+                                    <p>Active Bookings</p>
                                     <h1 id="activeBookings"></h1>
                                 </div>
                             </div>
 
                             <div class="row m-5">
-                                <div class="col">
-                                    <p>availableCars</p>
+                                <div class="col card">
+                                    <p>Available Cars</p>
                                     <h1 id="availableCars"></h1>
                                 </div>
-                                <div class="col">
-                                    <p>reservedCars</p>
+                                <div class="col card">
+                                    <p>Reserved Cars</p>
                                     <h1 id="reservedCars"></h1>
                                 </div>
-                                <div class="col">
-                                    <p>carsNeedMaintenance</p>
+                                <div class="col card">
+                                    <p>Cars Need Maintenance</p>
                                     <h1 id="carsNeedMaintenance"></h1>
                                 </div>
                             </div>
 
                             <div class="row m-5">
-                                <div class="col">
-                                    <p>carsUnderMaintenance</p>
+                                <div class="col card">
+                                    <p>Cars Under Maintenance</p>
                                     <h1 id="carsUnderMaintenance"></h1>
                                 </div>
-                                <div class="col">
-                                    <p>availableDrivers</p>
+                                <div class="col card">
+                                    <p>Available Drivers</p>
                                     <h1 id="availableDrivers"></h1>
                                 </div>
-                                <div class="col">
-                                    <p>occupiedDrivers</p>
+                                <div class="col card">
+                                    <p>Occupied Drivers</p>
                                     <h1 id="occupiedDrivers"></h1>
                                 </div>
                             </div>
@@ -97,20 +101,19 @@
                     </div>
                 </div>
                 <!-------------------------------------------------------Manage-Car section--------------------------------------------------->
-                <div class="container manage-car-section">
-                    <div class="row bg-warning">
-                        <div class="col">
-                            <nav class="navbar  navbar-light bg-danger p-4">
+                <div class=" manage-car-section ">
+                    <div class="row ">
+                        <div class="col bg-danger bar">
+                            <nav class="navbar  navbar-light bg-danger bar p-4">
                                 <div>
-                                    <a class="navbar-brand" href="#" id="manageCar">Manage Car</a>
+                                    <a class="navbar-brand text-light" href="#" id="manageCar">Manage Car</a>
                                     <!--<a class="navbar-brand" href="#" id="addAMaintain">Add A Maintain</a>-->
                                     <!--<a class="navbar-brand" href="#" id="ee">Menu3</a>-->
                                 </div>
                             </nav>
                         </div>
                     </div>
-
-                    <div class="row bg-warning">
+                    <div class="row  ">
                         <div class="container">
                             <form>
                                 <div class="row mt-3">
@@ -189,13 +192,13 @@
                             </div>
                                 <button type="button" class="btn btn-primary" id="addCar">Add Car</button>
                                 <button type="button" class="btn btn-secondary" id="addMaintain">Add Maintain</button>
-                                <button type="button" class="btn btn-success">Success</button>
+
 
                             </form>
                         </div>
-                        <div class="mt-3 " style="overflow-y: scroll; overflow-x: scroll">
-                            <table class="table table-hover table-bordered" id="carTable">
-                                <thead>
+                        <div class="mt-3  container" style="overflow-y: scroll; overflow-x: scroll">
+                            <table class="table table-hover table-border" id="carTable" >
+                                <thead class="table-dark">
                                 <tr>
                                     <th scope="col">registrationNo</th>
                                     <th scope="col">brand</th>
@@ -227,12 +230,12 @@
                     </div>
                 </div>
                 <!-------------------------------------------------------View-Customer section--------------------------------------------------->
-                <div class="container view-customer-section">
-                    <div class="row bg-warning">
-                        <div class="col">
-                            <nav class="navbar  navbar-light bg-danger p-4">
+                <div class=" view-customer-section "    >
+                    <div class="row ">
+                        <div class="col bg-danger bar">
+                            <nav class="navbar  navbar-light bg-danger bar p-4">
                                 <div>
-                                    <a class="navbar-brand" href="#" id="w">View Customers(Verify NIC)</a>
+                                    <a class="navbar-brand text-light" href="#" id="w">View Customers(Verify NIC)</a>
                                     <!--
                                     <a class="navbar-brand" href="#" id="e">Menu2</a>
                                     <a class="navbar-brand" href="#" id="ee">Menu3</a>-->
@@ -241,7 +244,7 @@
 
                         </div>
                     </div>
-                    <div class="row bg-warning">
+                    <div class="row mt-3 ">
                         <div class="row">
                         <div class="col">
                             <input type="text" class="form-control" placeholder="NIC" id="nic">
@@ -252,10 +255,10 @@
                             <button class="btn btn-primary" type="button" id="UserPending">Pending</button>
                         </div>
                         </div>
-                        <div class="container">
+                        <div class="container canvas">
                             <div class="mt-3 " style="overflow-y: scroll; overflow-x: scroll">
                                 <table class="table table-hover table-bordered" id="customerTable">
-                                    <thead>
+                                    <thead class="table-dark">
                                     <tr>
                                         <th scope="col">NIC</th>
                                         <th scope="col">E-mail</th>
@@ -276,19 +279,19 @@
                     </div>
                 </div>
                 <!-------------------------------------------------------Calculate-Income section--------------------------------------------------->
-                <div class="container calculate-income-section">
-                    <div class="row bg-warning">
-                        <div class="col">
-                            <nav class="navbar  navbar-light bg-danger p-4">
+                <div class=" calculate-income-section ">
+                    <div class="row ">
+                        <div class="col bg-danger bar">
+                            <nav class="navbar  navbar-light bg-danger bar p-4">
                                 <div>
-                                    <a class="navbar-brand" href="#" id="report">Report</a><!--
+                                    <a class="navbar-brand text-light" href="#" id="report">Report</a><!--
                                     <a class="navbar-brand" href="#" id="e">Menu2</a>
                                     <a class="navbar-brand" href="#" id="ee">Menu3</a>-->
                                 </div>
                             </nav>
                         </div>
                     </div>
-                    <div class="row bg-warning">
+                    <div class="row  canvas">
                         <div class="container">
                             <div class="row m-5">
                                 <div class="col">
@@ -317,22 +320,22 @@
                     </div>
                 </div>
                 <!-------------------------------------------------------View-Rental-Request section--------------------------------------------------->
-                <div class="container view-rental-request-section">
-                    <div class="row bg-warning">
-                        <div class="col">
-                            <nav class="navbar  navbar-light bg-danger p-4">
+                <div class=" view-rental-request-section ">
+                    <div class="row ">
+                        <div class="col bg-danger bar">
+                            <nav class="navbar  navbar-light bg-danger bar p-4">
                                 <div>
-                                    <a class="navbar-brand" href="#" id="acceptDenyRentalButton">Accept/Deny Rental</a>
-                                    <a class="navbar-brand" href="#" id="changeAssignedDriverButton">Change Assigned Driver</a>
-                                    <a class="navbar-brand" href="#" id="calculatePaymentButton">Calculate Payment</a>
+                                    <a class="navbar-brand text-light" href="#" id="acceptDenyRentalButton">Accept/Deny Rental</a>
+                                    <a class="navbar-brand text-light" href="#" id="changeAssignedDriverButton">Change Assigned Driver</a>
+                                    <a class="navbar-brand text-light" href="#" id="calculatePaymentButton">Calculate Payment</a>
                                 </div>
                             </nav>
                         </div>
                     </div>
                     <!-------------------------------------------------------View-Rental-Request section(Accept Request)--------------------------------------------------->
-                    <div class="row bg-warning accept-request">
+                    <div class="row  accept-request">
                         <div class="container">
-                            <div class="row">
+                            <div class="row mt-3">
                                 <div class="col">
                                     <input type="text" class="form-control" placeholder="Request Id" id="requestId">
                                 </div>
@@ -343,9 +346,9 @@
                             </div>
                             </div>
                         </div>
-                        <div class="container" style="overflow-y: scroll; overflow-x: scroll">
+                        <div class="container mt-3" style="overflow-y: scroll; overflow-x: scroll">
                             <table class="table table-hover table-bordered admin-rentalRequestStatusTable">
-                                <thead>
+                                <thead class="table-dark">
                                 <tr>
                                     <th scope="col">RequestID</th>
                                     <th scope="col">NIC</th>
@@ -370,23 +373,22 @@
                         </div>
                     </div>
                     <!-------------------------------------------------------View-Rental-Request section(Change Driver)--------------------------------------------------->
-                    <div class="row bg-warning view-rental-request-section-changeDriver">
-                        <div class="container">
-                            <div class="row">
+                    <div class="row  view-rental-request-section-changeDriver">
+                        <div>
+                            <div class="row m-1">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Request Id" id="changeRequestId">
-                                    <input type="text" class="form-control" placeholder="Request Id" id="changeDid">
+                                    <input type="text" class="form-control m-1" placeholder="Request ID" id="changeRequestId">
+                                    <input type="text" class="form-control m-1" placeholder="Driver ID" id="changeDid">
                                 </div>
                                 <div class="col">
                                     <button class="btn btn-primary" type="button" id="changeDriver">Change</button>
                                 </div>
-                                <hr>
                             </div>
                             <div class="row">
                                 <div class="col-9">
                                     <div class="container row" style="overflow-y: scroll; overflow-x: scroll">
                                         <table class="table table-hover table-bordered admin-rentalRequestStatusTable">
-                                            <thead>
+                                            <thead class="table-dark">
                                             <tr>
                                                 <th scope="col">RequestID</th>
                                                 <th scope="col">NIC</th>
@@ -412,7 +414,7 @@
                                 <div class="col-3">
                                     <div class="container row" style="overflow-y: scroll; overflow-x: scroll">
                                             <table class="table table-hover table-bordered admin-diver">
-                                            <thead>
+                                            <thead class="table-dark" >
                                             <tr>
                                                 <th scope="col">DID</th>
                                                 <th scope="col">Name</th>
@@ -434,35 +436,33 @@
 
                     </div>
                     <!-------------------------------------------------------View-Rental-Request section(Calculate Payment)--------------------------------------------------->
-                    <div class="row bg-warning view-rental-request-section-calculate-payment">
+                    <div class="row  view-rental-request-section-calculate-payment">
                         <div class="container">
-                            <div class="row">
+                            <div class="row mt-3">
                                 <div class="col">
-                                    <input type="text" class="form-control" placeholder="Request Id" id="reqId">
-                                    <input type="text" class="form-control" placeholder="Driver ID" id="did">
-                                    <input type="text" class="form-control" placeholder="Registration No" id="regNo">
-                                    <input type="text" class="form-control" placeholder="PickUP-Date" id="pickDate">
-                                    <input type="text" class="form-control" placeholder="Return-Date" id="returnDate">
-                                    <input type="text" class="form-control" placeholder="Loss Damage Waver" id="lossDamageWaver">
+                                    <input type="text" class="form-control m-1" placeholder="Request Id" id="reqId">
+                                    <input type="text" class="form-control m-1" placeholder="Driver ID" id="did">
+                                    <input type="text" class="form-control m-1" placeholder="Registration No" id="regNo">
+                                    <input type="text" class="form-control m-1" placeholder="PickUP-Date" id="pickDate">
+                                    <input type="text" class="form-control m-1" placeholder="Return-Date" id="returnDate">
+                                    <input type="text" class="form-control m-1" placeholder="Loss Damage Waver" id="lossDamageWaver">
                                 </div>
                                 <div class="col">
 
-                                    <input type="text" class="form-control" placeholder="NoOFDates" id="NoOFDates">
-                                    <input type="text" class="form-control" placeholder="MeeterValue" id="MeeterValue">
-                                    <input type="text" class="form-control" placeholder="Payment" id="payment">
+                                    <input type="text" class="form-control m-1" placeholder="NoOFDates" id="NoOFDates">
+                                    <input type="text" class="form-control m-1" placeholder="MeeterValue" id="MeeterValue">
+                                    <input type="text" class="form-control m-1" placeholder="Payment" id="payment">
 
                                     <!--<input type="text" class="form-control" placeholder="Damage Amount" id="damageAmount">-->
-                                    <button type="button" class="btn btn-primary" id="calculatePayment">Check Request</button>
+                                    <button type="button" class="btn btn-success m-1" id="calculatePayment">Calculate Payment</button>
+                                    <button type="button" class="btn btn-primary" id="pay">PayNow</button>
                                 </div>
 
                             </div>
-                            <div class="row">
-                                <button type="button" class="btn btn-primary" id="pay">PayNow</button>
-                            </div>
                         </div>
-                        <div class="container" style="overflow-y: scroll; overflow-x: scroll">
+                        <div class="container m-1" style="overflow-y: scroll; overflow-x: scroll">
                             <table class="table table-hover table-bordered admin-rentalRequestStatusTable" id="admin-rentalRequestStatusTable">
-                                <thead>
+                                <thead class="table-dark">
                                 <tr>
                                     <th scope="col">RequestID</th>
                                     <th scope="col">NIC</th>
@@ -486,11 +486,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
-
 
             </div>
         </div>

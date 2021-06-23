@@ -1,6 +1,7 @@
 mainFunction();
 getAllCars();
 dashboardLoad();
+
 function mainFunction() {
     $('.dashboard-section').css({display: "block"});
     $('.manage-car-section').css({display: "none"});
@@ -150,9 +151,10 @@ $('#addCar').click(function () {
                     success: function (rt) {
                         if (rt.code == 200) {
                             console.log("wade goda udarayaaaaaa!")
+                            confirm("Car is Added");
                             getAllCars();
                         } else {
-                            console.log("uba maha kalakanniyek bn!")
+                            console.log("Please Try Again")
                         }
                     }
                 })
@@ -180,7 +182,7 @@ function getAllUsers() {
                 let address = user.address;
                 let contact = user.contact;
                 let idPhoto = "<img style='width: 100px; height: 100px' src='asserts/img/" + id + "'>"
-                let status=user.status;
+                let status = user.status;
 
                 var row = `<tr><td>${nic}</td><td>${email}</td><td>${password}</td><td>${idPhoto}</td><td>${address}</td><td>${contact}</td><td>${status}</td></tr>`;
                 $('#customerTable>tbody').append(row);
@@ -271,24 +273,42 @@ $('#accept').click(function () {
     $.ajax({
         method: "PUT",
         url: "http://localhost:8080/BackEnd_war_exploded/api/v1/rentalRequest/acceptRentalRequest/" + "Accept" + "/" + reqId,
-
+        success: function (resp) {
+            if (resp.code == 200) {
+                requestStatusTableDataLoad();
+                confirm("Accept Request No-"+reqId);
+            }
+        }
     })
+    requestStatusTableDataLoad();
 })
 $('#denied').click(function () {
     let reqId = $('#requestId').val();
     $.ajax({
         method: "PUT",
         url: "http://localhost:8080/BackEnd_war_exploded/api/v1/rentalRequest/acceptRentalRequest/" + "Denied" + "/" + reqId,
-
+        success: function (resp) {
+            if (resp.code == 200) {
+                requestStatusTableDataLoad();
+                confirm("Denied Request No-"+reqId);
+            }
+        }
     })
+    requestStatusTableDataLoad();
 })
 $('#pending').click(function () {
     let reqId = $('#requestId').val();
     $.ajax({
         method: "PUT",
         url: "http://localhost:8080/BackEnd_war_exploded/api/v1/rentalRequest/acceptRentalRequest/" + "Pending" + "/" + reqId,
-
+        success: function (resp) {
+            if (resp.code == 200) {
+                requestStatusTableDataLoad();
+                confirm("Pending Request No-"+reqId);
+            }
+        }
     })
+    requestStatusTableDataLoad();
 })
 
 $('.admin-rentalRequestStatusTable').click(function () {
@@ -326,7 +346,11 @@ $('#changeDriver').click(function () {
         url: "http://localhost:8080/BackEnd_war_exploded/api/v1/rentalRequest/changeDriver/" + did + "/" + requestId,
         success: function (resp) {
             console.log(resp.message);
-            requestStatusTableDataLoad();
+            if (resp.code==200){
+                confirm("Driver Change Success-"+requestId);
+                requestStatusTableDataLoad();
+            }
+
 
         }
     })
@@ -340,7 +364,9 @@ $('#addMaintain').click(function () {
         success: function (resp) {
             console.log(resp.message);
             getAllCars();
-
+            if (resp.code == 200) {
+                confirm("Car is Added To The Maintain Mode");
+            }
         }
     })
 })
@@ -362,7 +388,7 @@ $(document).ready(function () {
         var col12 = $(this).find('td:eq(12)').text();
         var col13 = $(this).find('td:eq(13)').text();
         var col14 = $(this).find('td:eq(14)').text();
-        var col15 = $(this).find('td:eq(15)').text();
+        var col15 = $(this).find('td:eq(18)').text();
 
         $('#registrationNo').val(col0);
         $('#brand').val(col1);
@@ -396,31 +422,13 @@ $(document).ready(function () {
         var col5 = $(this).find('td:eq(5)').text();
         var col6 = $(this).find('td:eq(6)').text();
         var col7 = $(this).find('td:eq(7)').text();
-        var col8 = $(this).find('td:eq(8)').text();/*
-        var col9=$(this).find('td:eq(9)').text();
-        var col10=$(this).find('td:eq(10)').text();
-        var col11=$(this).find('td:eq(11)').text();
-        var col12=$(this).find('td:eq(12)').text();
-        var col13=$(this).find('td:eq(13)').text();
-        var col14=$(this).find('td:eq(14)').text();
-        var col15=$(this).find('td:eq(15)').text();*/
+        var col8 = $(this).find('td:eq(8)').text();
 
         $('#reqId').val(col0);
         $('#did').val(col3);
         $('#regNo').val(col2);
         $('#pickDate').val(col4);
-        $('#returnDate').val(col7);/*
-        $('#NoOFDates').val(col5);
-        $('#MeeterValue').val(col6);
-        $('#payment').val(col7);
-        $('#dailyRate').val(col8);
-        $('#monthlyRate').val(col9);
-        $('#freeMileagePerDay').val(col10);
-        $('#freeMileagePerMonth').val(col11);
-        $('#pricePerKm').val(col12);
-        $('#kmMeterValue').val(col13);
-        $('#lastReturnDate').val(col14);
-        $('#lossDamageWaiver').val(col15);*/
+        $('#returnDate').val(col7);
 
 
     })
@@ -564,6 +572,7 @@ $('#pay').click(function () {
             if (resp.code == 201) {
                 console.log(resp.data)
                 setCarIsAvailableYESandChangeMeterValue();
+                confirm("payment Complete");
             }
 
         }
@@ -578,7 +587,7 @@ function setCarIsAvailableYESandChangeMeterValue() {
     console.log(reqID)
     $.ajax({
         method: "PUT",
-        url: "http://localhost:8080/BackEnd_war_exploded/api/v1/payment/updateOtherTable/"+reqID+"/"+meterValue,
+        url: "http://localhost:8080/BackEnd_war_exploded/api/v1/payment/updateOtherTable/" + reqID + "/" + meterValue,
         success: function (resp) {
             if (resp.code == 201) {
                 console.log("uuu")
@@ -591,28 +600,50 @@ function setCarIsAvailableYESandChangeMeterValue() {
 
 
 $('#userAccept').click(function () {
-    let nic=$('#nic').val();
+    let nic = $('#nic').val();
     $.ajax({
         method: "PUT",
         url: "http://localhost:8080/BackEnd_war_exploded/api/v1/user/acceptUser/" + "Accept" + "/" + nic,
+        success: function (resp) {
+            if (resp.code == 200) {
+                confirm("Accept User " + nic);
+                getAllUsers();
+            }
+        }
 
     })
+    getAllUsers();
 })
 $('#userDenied').click(function () {
-    let nic=$('#nic').val();
+    let nic = $('#nic').val();
     $.ajax({
         method: "PUT",
         url: "http://localhost:8080/BackEnd_war_exploded/api/v1/user/acceptUser/" + "Denied" + "/" + nic,
+        success: function (resp) {
+            if (resp.code == 200) {
+                confirm("Denied User " + nic);
+                getAllUsers();
+            }
+        }
 
     })
+    getAllUsers();
 })
 $('#UserPending').click(function () {
-    let nic=$('#nic').val();
+    let nic = $('#nic').val();
     $.ajax({
         method: "PUT",
         url: "http://localhost:8080/BackEnd_war_exploded/api/v1/user/acceptUser/" + "Pending" + "/" + nic,
+        success: function (resp) {
+            if (resp.code == 200) {
+                confirm("Pending User " + nic);
+                getAllUsers();
+            }
+        }
 
     })
+    getAllUsers();
+
 })
 
 //dashboard Section
@@ -622,16 +653,15 @@ function dashboardLoad() {
         url: "http://localhost:8080/BackEnd_war_exploded/api/v1/Dashboard/dashboardDetails",
         success: function (resp) {
             console.log(resp);
-                $('#registeredUsers').text(resp.data.registeredUsers);
-                $('#totalBookings').text(resp.data.totalBookings);
-                $('#activeBookings').text(resp.data.activeBookings);
-                $('#availableCars').text(resp.data.availableCars);
-                $('#reservedCars').text(resp.data.reservedCars);
-                $('#carsNeedMaintenance').text(resp.data.carsNeedMaintenance);
-                $('#carsUnderMaintenance').text(resp.data.carsUnderMaintenance);
-                $('#availableDrivers').text(resp.data.availableDrivers);
-                $('#occupiedDrivers').text(resp.data.occupiedDrivers);
-
+            $('#registeredUsers').text(resp.data.registeredUsers);
+            $('#totalBookings').text(resp.data.totalBookings);
+            $('#activeBookings').text(resp.data.activeBookings);
+            $('#availableCars').text(resp.data.availableCars);
+            $('#reservedCars').text(resp.data.reservedCars);
+            $('#carsNeedMaintenance').text(resp.data.carsNeedMaintenance);
+            $('#carsUnderMaintenance').text(resp.data.carsUnderMaintenance);
+            $('#availableDrivers').text(resp.data.availableDrivers);
+            $('#occupiedDrivers').text(resp.data.occupiedDrivers);
 
 
         }
@@ -640,3 +670,30 @@ function dashboardLoad() {
 
 
 }
+
+$(document).ready(function () {
+    $(document).on('click', '#customerTable tbody tr', function () {
+        var col0 = $(this).find('td:eq(0)').text();
+        $('#nic').val(col0);
+
+
+    })
+    $(document).on('click', '.admin-rentalRequestStatusTable tbody tr', function () {
+        var col0 = $(this).find('td:eq(0)').text();
+        $('#changeRequestId').val(col0);
+
+
+    })
+    $(document).on('click', '.admin-diver tbody tr', function () {
+        var col0 = $(this).find('td:eq(0)').text();
+        $('#changeDid').val(col0);
+
+
+    })
+    $(document).on('click', '.admin-rentalRequestStatusTable tbody tr', function () {
+        var col0 = $(this).find('td:eq(0)').text();
+        $('#requestId').val(col0);
+
+
+    })
+})

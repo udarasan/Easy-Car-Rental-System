@@ -1,0 +1,50 @@
+#loginButtonSection{
+    margin-left: 329px;
+}
+#createAccount{
+    margin-right: 10px;
+}
+#regCarTable img:hover{
+    transform: scale(1.5);
+}
+.table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+
+}
+.table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    border-radius: 15px;
+
+}
+.table th,
+.table td {
+    padding: 12px 15px;
+}
+.requestStatusTable tr td:nth-child(11) {
+    background: #ccc;
+}
+
+.myAccount-section{
+    background-image: linear-gradient(to right bottom, #051937, #002c60, #003f8c, #0053bb, #1267eb);
+    height: 1000px;
+    width: 100%;
+    margin: auto;
+    display: block;
+    align-content: center;
+}
+.form-control{
+    border-radius: 35px;
+}
+.btn{
+    border-radius: 35px;
+    padding-right: 20px;
+    padding-left: 20px;
+}

@@ -40,6 +40,10 @@ $('#rentStatusButton').click(function () {
     $('.rental-status-section').css({display: "block"});
 })
 
+$('#createAccount').click(function () {
+    location.replace("http://localhost:63342/Easy-Car-Rental-System/FrontEnd/gustUser/index.html")
+})
+
 $('#login').click(function () {
     let NIC = $('#loginNIC').val();
     let password = $('#loginPassword').val();
@@ -70,7 +74,7 @@ $('#login').click(function () {
 
 });
 $('#logOutButton').click(function () {
-    loadRegUserDetails(90);
+    location.replace("http://localhost:63342/Easy-Car-Rental-System/FrontEnd/gustUser/index.html")
 })
 
 function loadRegUserDetails(NIC) {
@@ -86,7 +90,9 @@ function showTopButtons() {
     $('#myAccountButton').css({display: "block"});
     $('#rentStatusButton').css({display: "block"});
 }
-
+$('#rentStatusButton').click(function () {
+    requestStatusTableDataLoad();
+})
 function getAllCars() {
     $.ajax({
         method:"GET",
@@ -117,7 +123,7 @@ function getAllCars() {
                 let lossDamageWaiver=car.lossDamageWaiver;
                 let frontImage="<img style='width: 100px; height: 100px' src='../admin/asserts/img/" + id + "'>"
 
-                var row = `<tr><td>${registrationNo}</td><td>${brand}</td><td>${type}</td><td>${frontImage}</td><td>${numberOfPassengers}</td><td>${transmissionType}</td><td>${fuelType}</td><td>${color}</td><td>${dailyRate}</td><td>${monthlyRate}</td><td>${freeMileagePerDay}</td><td>${freeMileagePerMonth}</td><td>${pricePerKm}</td><td>${kmMeterValue}</td><td>${lastReturnDate}</td><td>${isAvailable}</td><td>${isDamaged}</td><td>${underMaintenance}</td>td>${lossDamageWaiver}</td></tr>`;
+                var row = `<tr><td>${registrationNo}</td><td>${brand}</td><td>${type}</td><td>${frontImage}</td><td>${numberOfPassengers}</td><td>${transmissionType}</td><td>${fuelType}</td><td>${color}</td><td>${dailyRate}</td><td>${monthlyRate}</td><td>${freeMileagePerDay}</td><td>${freeMileagePerMonth}</td><td>${pricePerKm}</td><td>${kmMeterValue}</td><td>${lastReturnDate}</td><td>${isAvailable}</td><td>${isDamaged}</td><td>${underMaintenance}</td><td>${lossDamageWaiver}</td></tr>`;
                 $('#regCarTable>tbody').append(row);
             }
         }
@@ -137,7 +143,7 @@ $('#sendRequest').click(function () {
     }else if (s==2){
         withoutDriverRentalRequest();
     }else {
-        console.log("please select Driver or Not")
+        confirm("please select Driver or Not");
     }
 
 })
@@ -216,9 +222,14 @@ function sendRequestWithRandomDriver(driver) {
                     success:function (rt) {
                         if (rt.code==201){
                             console.log("wade goda udarayaaaaaa!")
+                            confirm("Request Complete! Wait For Accept");
                             getAllCars();
+                            requestStatusTableDataLoad();
+
                         }else {
                             console.log("uba maha kalakanniyek bn!")
+                            confirm("Try A Again");
+                            requestStatusTableDataLoad();
                         }
                     }
                 })
@@ -291,14 +302,20 @@ function withoutDriverRentalRequest() {
                         if (rt.code==201){
                             console.log("wade goda udarayaaaaaa!")
                             getAllCars();
+                            confirm("Request Complete! Wait For Accept");
+                            requestStatusTableDataLoad();
                         }else {
-                            console.log("uba maha kalakanniyek bn!")
+                            console.log("Try A Again")
+                            confirm("Try A Again");
+                            requestStatusTableDataLoad();
                         }
                     }
                 })
 
             }
+
         }
+
     })
 
 /*
@@ -419,7 +436,13 @@ function registerUser() {
                         "address": address,
                         "contact": contact,
                         "status":status
-                    })
+                    }),
+                    success:function (resp) {
+                        if (resp.code==200){
+                            confirm("Your Account Is updated");
+                        }
+
+                    }
 
                 });
             } else {
@@ -431,3 +454,14 @@ function registerUser() {
 }
 
 
+$(document).ready(function () {
+    $(document).on('click', '#regCarTable tbody tr', function () {
+        var col0 = $(this).find('td:eq(0)').text();
+        $('#reRegisterNO').val(col0);
+        let uID=$('#userNIC').text();
+        console.log(uID)
+        $('#reNIC').val(uID);
+
+    })
+
+})

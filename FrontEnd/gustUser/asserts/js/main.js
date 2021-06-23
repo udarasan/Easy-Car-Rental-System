@@ -9,6 +9,7 @@ function mainFunction() {
 $('#registerButton').click(function () {
     $('.car-details-section').css({display: "none"});
     $('.registration-section').css({display: "block"});
+    $('.homeBanner').css({display: "none"});
 });
 
 $('#gustHome').click(function () {
@@ -30,6 +31,8 @@ function registerUser() {
     let address = $('#address').val();
     let contact = $('#contact').val();
     let status = "Pending"
+
+
 
 
     let formData = new FormData();
@@ -61,11 +64,19 @@ function registerUser() {
                         "address": address,
                         "contact": contact,
                         "status":status
-                    })
+                    }),
+                    success:function (resp) {
+                        if (resp.code==201){
+                            confirm("Your Account Is Created Please Wait To Verified Process !");
+                            location.replace("http://localhost:63342/Easy-Car-Rental-System/FrontEnd/gustUser/index.html")
+                        }else {
+                            confirm("please Fill All Fields Correctly");
+                        }
+                    }
 
                 });
             } else {
-                alert("Please Upload a NID")
+                alert("Please Upload A NIC Photo")
             }
 
         }
@@ -73,6 +84,9 @@ function registerUser() {
 }
 
 $('#loginButton').click(function () {
+    location.replace("http://localhost:63342/Easy-Car-Rental-System/FrontEnd/regUser/index.html")
+})
+$('#rentCar').click(function (){
     location.replace("http://localhost:63342/Easy-Car-Rental-System/FrontEnd/regUser/index.html")
 })
 
@@ -114,3 +128,4 @@ function getAllAvailableCars() {
 
     })
 }
+
