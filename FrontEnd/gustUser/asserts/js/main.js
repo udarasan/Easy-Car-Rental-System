@@ -129,3 +129,43 @@ function getAllAvailableCars() {
     })
 }
 
+/*REG-EX*/
+
+let cusRegEx=/^[0-9]{1,10}(V)$/;
+let cusNRegEx=/^[A-z]{1,100}$/;
+let cusARegEx=/^[A-z,0-9]{1,200}$/;
+let cusSRegEx=/^[0-9]{1,100000}$/;
+
+
+
+
+$("#nic").on('keyup',function (event){
+    if (event.key=="Enter"){
+        $('#email').focus();
+    }
+
+    let inputID=$("#nic").val();
+    if (cusRegEx.test(inputID)){
+        $("#nic").css('border','2px solid green');
+        // $("#lblcusid").text("CustomerID").css('text','solid green');
+    }else{
+        $("#nic").css('border','2px solid red');C
+    }
+});
+
+let email=/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+
+$("#email").on('keyup',function (event){
+    if (event.key=="Enter"){
+        $('#password').focus();
+    }
+
+    let inputID=$("#email").val();
+    if (email.test(inputID)){
+        $("#email").css('border','2px solid green');
+        // $("#lblcusid").text("CustomerID").css('text','solid green');
+    }else{
+        $("#email").css('border','2px solid red');C
+    }
+});
+

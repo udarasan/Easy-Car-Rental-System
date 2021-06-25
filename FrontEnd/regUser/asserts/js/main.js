@@ -465,3 +465,50 @@ $(document).ready(function () {
     })
 
 })
+/*REG-EX*/
+
+let cusRegEx=/^[0-9]{1,10}(V)$/;
+let email=/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/;
+
+$("#loginNIC").on('keyup',function (event){
+    if (event.key=="Enter"){
+        $('#loginPassword').focus();
+    }
+
+    let inputID=$("#loginNIC").val();
+    if (cusRegEx.test(inputID)){
+        $("#loginNIC").css('border','2px solid green');
+        // $("#lblcusid").text("CustomerID").css('text','solid green');
+    }else{
+        $("#loginNIC").css('border','2px solid red');C
+    }
+});
+
+$("#nic").on('keyup',function (event){
+    if (event.key=="Enter"){
+        $('#email').focus();
+    }
+
+    let inputID=$("#nic").val();
+    if (cusRegEx.test(inputID)){
+        $("#nic").css('border','2px solid green');
+        // $("#lblcusid").text("CustomerID").css('text','solid green');
+    }else{
+        $("#nic").css('border','2px solid red');C
+    }
+});
+$("#email").on('keyup',function (event){
+    if (event.key=="Enter"){
+        $('#password').focus();
+    }
+
+    let inputID=$("#email").val();
+    if (email.test(inputID)){
+        $("#email").css('border','2px solid green');
+        // $("#lblcusid").text("CustomerID").css('text','solid green');
+    }else{
+        $("#email").css('border','2px solid red');C
+    }
+});
+
+
