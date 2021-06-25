@@ -83,5 +83,11 @@ public class RentalRequestController {
         service.changeDriver(did,requestId);
         return new ResponseEntity(new StandardResponse("200", "Done", "done"), HttpStatus.OK);
     }
+    @GetMapping(path = "/getIncome/{year}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity getIncome(@PathVariable String year) {
+        double c=service.getIncome(year);
+        return new ResponseEntity(new StandardResponse("200", "Done", c), HttpStatus.OK);
+    }
+
 
 }

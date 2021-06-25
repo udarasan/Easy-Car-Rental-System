@@ -2,6 +2,7 @@ package lk.ijse.easycarrentalsystem.service.impl;
 
 import lk.ijse.easycarrentalsystem.dto.DriverDTO;
 import lk.ijse.easycarrentalsystem.entity.Driver;
+import lk.ijse.easycarrentalsystem.entity.User;
 import lk.ijse.easycarrentalsystem.repo.DriverRepo;
 import lk.ijse.easycarrentalsystem.service.DriverService;
 import org.modelmapper.ModelMapper;
@@ -42,6 +43,17 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public int getOccupiedDriverCount() {
         return driverRepo.getOccupiedDriverCount();
+    }
+
+    @Override
+    public void saveDriver(DriverDTO dto) {
+        driverRepo.save(mapper.map(dto, Driver.class));
+    }
+
+    @Override
+    public ArrayList<DriverDTO> getAllDrivers() {
+        List<Driver>allDrivers=driverRepo.findAll();
+        return mapper.map(allDrivers,new TypeToken<ArrayList<DriverDTO>>(){}.getType());
     }
 
 

@@ -1,6 +1,7 @@
 mainFunction();
 getAllCars();
 dashboardLoad();
+calculateIncome();
 
 function mainFunction() {
     $('.dashboard-section').css({display: "block"});
@@ -10,6 +11,7 @@ function mainFunction() {
     $('.view-rental-request-section').css({display: "none"});
     $('.view-rental-request-section-changeDriver').css({display: "none"});
     $('.view-rental-request-section-calculate-payment').css({display: "none"});
+    $('.manage-driver-section').css({display: "none"});
 }
 
 $('#dashboardButton').click(function () {
@@ -18,6 +20,7 @@ $('#dashboardButton').click(function () {
     $('.view-customer-section').css({display: "none"});
     $('.calculate-income-section').css({display: "none"});
     $('.view-rental-request-section').css({display: "none"});
+    $('.manage-driver-section').css({display: "none"});
 })
 
 $('#manageCarButton').click(function () {
@@ -26,6 +29,17 @@ $('#manageCarButton').click(function () {
     $('.view-customer-section').css({display: "none"});
     $('.calculate-income-section').css({display: "none"});
     $('.view-rental-request-section').css({display: "none"});
+    $('.driverSection').css({display: "none"});
+    $('.manage-driver-section').css({display: "none"});
+})
+
+$('#manageDiverButton').click(function () {
+    $('.dashboard-section').css({display: "none"});
+    $('.manage-car-section').css({display: "none"});
+    $('.view-customer-section').css({display: "none"});
+    $('.calculate-income-section').css({display: "none"});
+    $('.view-rental-request-section').css({display: "none"});
+    $('.manage-driver-section').css({display: "block"});
 })
 
 $('#viewCustomersButton').click(function () {
@@ -34,6 +48,7 @@ $('#viewCustomersButton').click(function () {
     $('.view-customer-section').css({display: "block"});
     $('.calculate-income-section').css({display: "none"});
     $('.view-rental-request-section').css({display: "none"});
+    $('.manage-driver-section').css({display: "none"});
 })
 
 $('#calculateIncomeButton').click(function () {
@@ -42,6 +57,7 @@ $('#calculateIncomeButton').click(function () {
     $('.view-customer-section').css({display: "none"});
     $('.calculate-income-section').css({display: "block"});
     $('.view-rental-request-section').css({display: "none"});
+    $('.manage-driver-section').css({display: "none"});
 })
 
 $('#viewRentalReqButton').click(function () {
@@ -52,6 +68,7 @@ $('#viewRentalReqButton').click(function () {
     $('.view-rental-request-section').css({display: "block"});
     $('.view-rental-request-section-changeDriver').css({display: "none"});
     $('.view-rental-request-section-calculate-payment').css({display: "none"});
+    $('.manage-driver-section').css({display: "none"});
     requestStatusTableDataLoad();
 })
 
@@ -670,6 +687,16 @@ function dashboardLoad() {
 
 
 }
+function calculateIncome() {
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/BackEnd_war_exploded/api/v1/rentalRequest/getIncome/2021",
+        success: function (resp) {
+            console.log(resp.data);
+            $('#yIncome').text(resp.data);
+        }
+    })
+}
 
 $(document).ready(function () {
     $(document).on('click', '#customerTable tbody tr', function () {
@@ -697,3 +724,55 @@ $(document).ready(function () {
 
     })
 })
+
+$('#addDriver').click(function () {
+        let did=$('#driverID').val();
+        let name=$('#dName').val();
+        let contact=$('#contact').val();
+        let isAvailable=$('#isAvailable').val();
+
+        $.ajax({
+            method:'POST',
+            contentType: "application/json",
+            url:"http://localhost:8080/BackEnd_war_exploded/api/v1/drivers/addDriver",
+            data: JSON.stringify({
+                'did': did,
+                'name': name,
+                'contact': contact,
+                'isAvailable': isAvailable,
+            }),
+            success: function (resp) {
+                if (resp.code == 201) {
+                    console.log(resp.data)
+                    loadAllDrivers();
+                    confirm("Driver Added!");
+                }
+
+            }
+
+        })
+})
+loadAllDrivers();
+function loadAllDrivers() {
+    $.ajax({
+        method: "GET",
+        url: "http://localhost:8080/BackEnd_war_exploded/api/v1/drivers/allDrivers",
+        async: true,
+        success: function (resp) {
+            console.log(resp.data);
+            $('#driverTable>tbody').empty();
+
+            for (let request of resp.data) {
+                let did = request.did;
+                let name = request.name;
+                let contact = request.contact;
+                let isAvailable = request.isAvailable;
+
+                var row = `<tr><td>${did}</td><td>${name}</td><td>${contact}</td><td>${isAvailable}</td></tr>`;
+                $('#driverTable>tbody').append(row);
+            }
+        }
+
+    });
+
+}

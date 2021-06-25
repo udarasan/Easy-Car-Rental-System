@@ -13,4 +13,6 @@ public interface DriverService {
 
     int getAvailableDriverCount();
     int getOccupiedDriverCount();
+    void saveDriver(DriverDTO dto);
+    ArrayList<DriverDTO> getAllDrivers();
 }

@@ -101,5 +101,11 @@ public class RentalRequestServiceImpl implements RentalRequestService {
         return rentalRequestRepo.getTotalBookings();
     }
 
+    @Override
+    public double getIncome(String year) {
+        return rentalRequestRepo.getIncome(year);
+
+    }
+
 
 }

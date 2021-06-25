@@ -31,6 +31,7 @@
 
                     <button class="btn btn-primary text-start" type="button" id="dashboardButton">Dashboard</button>
                     <button class="btn btn-primary text-start" type="button" id="manageCarButton">Manage Cars</button>
+                    <button class="btn btn-primary text-start" type="button" id="manageDiverButton">Manage Divers</button>
                     <button class="btn btn-primary text-start" type="button" id="viewCustomersButton">View Customers</button>
                     <button class="btn btn-primary text-start" type="button" id="calculateIncomeButton">Calculate Income</button>
                     <button class="btn btn-primary text-start" type="button" id="viewRentalReqButton">View Rental Request</button>
@@ -107,13 +108,12 @@
                             <nav class="navbar  navbar-light bg-danger bar p-4">
                                 <div>
                                     <a class="navbar-brand text-light" href="#" id="manageCar">Manage Car</a>
-                                    <!--<a class="navbar-brand" href="#" id="addAMaintain">Add A Maintain</a>-->
                                     <!--<a class="navbar-brand" href="#" id="ee">Menu3</a>-->
                                 </div>
                             </nav>
                         </div>
                     </div>
-                    <div class="row  ">
+                    <div class="row">
                         <div class="container">
                             <form>
                                 <div class="row mt-3">
@@ -295,25 +295,28 @@
                         <div class="container">
                             <div class="row m-5">
                                 <div class="col">
-                                    Column
+                                    <p>Yearly Income</p>
+                                    <h1 id="yIncome"></h1>
                                 </div>
                                 <div class="col">
-                                    Column
+                                    <p>Monthly Income</p>
+                                    <h1 id="mIncome"></h1>
                                 </div>
                                 <div class="col">
-                                    Column
+                                    <p>Daily Income</p>
+                                    <h1 id="dIncome"></h1>
                                 </div>
                             </div>
 
                             <div class="row m-5">
                                 <div class="col">
-                                    Column
+
                                 </div>
                                 <div class="col">
-                                    Column
+
                                 </div>
                                 <div class="col">
-                                    Column
+
                                 </div>
                             </div>
                         </div>
@@ -476,6 +479,58 @@
                                     <th scope="col">returnVenue</th>
                                     <th scope="col">requestStatus</th>
                                     <th scope="col">description</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-------------------------------------------------------Manage-Drivers-Section--------------------------------------------------->
+                <div class="manage-driver-section">
+                    <div class="row ">
+                        <div class="col bg-danger bar">
+                            <nav class="navbar  navbar-light bg-danger bar p-4">
+                                <div>
+                                    <a class="navbar-brand text-light" href="#" id="manageDriver">Manage Driver</a>
+                                    <!--<a class="navbar-brand" href="#" id="ee">Menu3</a>-->
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="container">
+                            <form>
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="driverID" aria-label="driverID" id="driverID">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="dName" aria-label="dName" id="dName">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="contact" aria-label="contact" id="contact">
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" placeholder="isAvailable" aria-label="isAvailable" id="isAvailable">
+                                    </div>
+
+
+                                    </div>
+                                <button type="button" class="btn btn-primary mt-3" id="addDriver">Add Driver</button>
+                            </form>
+                        </div>
+                        <div class="mt-3  container" style="overflow-y: scroll; overflow-x: scroll">
+                            <table class="table table-hover table-border" id="driverTable" >
+                                <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">DriverID</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Contact</th>
+                                    <th scope="col">Is Available</th>
 
                                 </tr>
                                 </thead>

@@ -28,5 +28,9 @@ public interface RentalRequestRepo extends JpaRepository<RentalRequest,String> {
     @Query(value = "select count(requestId) from RentalRequest where requestStatus='Active'", nativeQuery = true)
     int getActiveBookings();
 
+    //calculate income(YEAR)
+    @Query(value = "SELECT SUM(rentalPayment) FROM Payment,RentalRequest WHERE RentalRequest.requestId=Payment.requestId AND YEAR(returnDate)=?1", nativeQuery = true)
+    double getIncome(String year);
+
 
 }
