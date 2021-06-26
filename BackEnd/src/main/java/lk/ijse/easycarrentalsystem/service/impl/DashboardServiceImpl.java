@@ -11,6 +11,7 @@ import javax.transaction.Transactional;
 @Service
 @Transactional
 public class DashboardServiceImpl implements DashBoardService {
+
     @Autowired
     CarRepo carRepo;
 
