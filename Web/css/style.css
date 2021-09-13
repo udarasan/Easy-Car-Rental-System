@@ -1,0 +1,32 @@
+
+#slider-one{
+    background: #47d46a;
+    width: auto;
+    height: 20vw;
+}
+.tile{
+    width: 100px;
+    height: 100px;
+    background: #2ace5e;
+    margin: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 13px;
+}
+.category-section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row-one{
+    display: block;
+}
+.row-two{
+    display: block;
+}
+.title-heading{
+    color: white;
+    font-weight: bold;
+}
